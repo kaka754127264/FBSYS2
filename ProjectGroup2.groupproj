@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C7A39D0C-758D-4E13-B91F-9C539023F4C9}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FBSYS.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\FBSYS\SDIAPP.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FBSYS">
+        <MSBuild Projects="FBSYS.dproj"/>
+    </Target>
+    <Target Name="FBSYS:Clean">
+        <MSBuild Projects="FBSYS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FBSYS:Make">
+        <MSBuild Projects="FBSYS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SDIAPP">
+        <MSBuild Projects="..\FBSYS\SDIAPP.dproj"/>
+    </Target>
+    <Target Name="SDIAPP:Clean">
+        <MSBuild Projects="..\FBSYS\SDIAPP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SDIAPP:Make">
+        <MSBuild Projects="..\FBSYS\SDIAPP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FBSYS;SDIAPP"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FBSYS:Clean;SDIAPP:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FBSYS:Make;SDIAPP:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
