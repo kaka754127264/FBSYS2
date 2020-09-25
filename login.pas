@@ -37,28 +37,78 @@ implementation
 uses
   user, admin, TimerDlg;
 
+type
+  EMyException = class(Exception);
+
+procedure EMyExceptionFunId(id: string);
+begin
+  if (id = '') then
+  begin
+    raise EMyException.Create('账号为空！');
+  end;
+end;
+
+procedure EMyExceptionFunPw(pw: string);
+begin
+  if (pw = '') then
+  begin
+    raise EMyException.Create('密码为空！');
+  end;
+end;
+
+procedure MException(id, pw: string);
+begin
+  try
+    EMyExceptionFunId(id);
+  except
+    on E: EMyException do
+    begin
+      SetDlgAutoClose(2 * 1000, True);
+      ShowMessage(E.Message);
+    end;
+
+  end;
+
+  try
+    EMyExceptionFunPw(pw);
+  except
+    on E: EMyException do
+    begin
+      SetDlgAutoClose(2 * 1000, True);
+      ShowMessage(E.Message);
+    end;
+  end;
+end;
+
 procedure TForm10.btn1Click(Sender: TObject);
 type
   TMyStrSel = (用户, 管理员);
 var
-  result, msg, userid, password,str: string;
+  result, msg, userid, password, str: string;
   strSel: TMyStrSel;
 begin
+
   userid := Trim(edt1.Text);
   password := Trim(edt2.Text);
 
-  //  ADOQuery1.Close;
+  //异常处理
+  MException(userid, password);
+
+  //  ADOQuery1.Close;+ ',''1'',''1'''
+  //'exec login_FB2'''+userid+''','''+password+''',''0'',''ok'''
+  qry1.Close;
   qry1.SQL.Clear;
-  qry1.SQL.Add('exec login_FB ' + userid + ', ' + password + ',''1'',''1''');
+  qry1.SQL.Add('exec login_FB2'''+userid+''','''+password+''',''0'',''ok''');
   qry1.open;
-  result := qry1.FieldByName('result').AsString;
+  //result := qry1.FieldByName('result').AsString;
   msg := qry1.FieldByName('msg').AsString;
+ //btn1.Caption:=result;
 
   str := msg;
   strSel := TMyStrSel(GetEnumValue(TypeInfo(TMyStrSel), str));
 
   case strSel of
-    管理员:
+    用户:
       begin
         if not Assigned(Form3) then //确保只创建一个窗口
         begin
@@ -68,7 +118,7 @@ begin
         ShowMessage(msg);
         Form3.ShowModal;
       end;
-    用户:
+    管理员:
       begin
         if not Assigned(Form4) then //确保只创建一个窗口
         begin

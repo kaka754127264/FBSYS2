@@ -274,8 +274,8 @@ object Form3: TForm3
   PixelsPerInch = 96
   TextHeight = 25
   object lbl3: TLabel
-    Left = 96
-    Top = 229
+    Left = 19
+    Top = 264
     Width = 76
     Height = 23
     Caption = #23457#26680#26085#26399
@@ -287,8 +287,8 @@ object Form3: TForm3
     ParentFont = False
   end
   object lbl5: TLabel
-    Left = 112
-    Top = 186
+    Left = 19
+    Top = 226
     Width = 57
     Height = 23
     Caption = #23457#26680#20154
@@ -300,8 +300,8 @@ object Form3: TForm3
     ParentFont = False
   end
   object lbl4: TLabel
-    Left = 112
-    Top = 45
+    Left = 38
+    Top = 21
     Width = 57
     Height = 23
     Caption = #30003#35831#20154
@@ -313,8 +313,8 @@ object Form3: TForm3
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 96
-    Top = 88
+    Left = 19
+    Top = 59
     Width = 76
     Height = 23
     Caption = #38382#39064#25551#36848
@@ -326,8 +326,8 @@ object Form3: TForm3
     ParentFont = False
   end
   object lbl1: TLabel
-    Left = 297
-    Top = 45
+    Left = 364
+    Top = 21
     Width = 38
     Height = 23
     Caption = #20135#21697
@@ -339,10 +339,10 @@ object Form3: TForm3
     ParentFont = False
   end
   object mmo1: TMemo
-    Left = 192
-    Top = 86
-    Width = 291
-    Height = 89
+    Left = 118
+    Top = 62
+    Width = 496
+    Height = 148
     BorderStyle = bsNone
     Font.Charset = GB2312_CHARSET
     Font.Color = clWindowText
@@ -354,41 +354,41 @@ object Form3: TForm3
     TabOrder = 0
   end
   object edt3: TEdit
-    Left = 192
-    Top = 191
-    Width = 89
-    Height = 24
+    Left = 115
+    Top = 226
+    Width = 227
+    Height = 28
     BorderStyle = bsNone
     TabOrder = 1
   end
   object edt1: TEdit
-    Left = 192
-    Top = 41
-    Width = 89
+    Left = 118
+    Top = 16
+    Width = 224
     Height = 29
     BorderStyle = bsNone
     TabOrder = 2
   end
   object edt8: TEdit
-    Left = 192
-    Top = 231
-    Width = 89
-    Height = 36
+    Left = 115
+    Top = 262
+    Width = 227
+    Height = 28
     BorderStyle = bsNone
     TabOrder = 3
   end
   object edt4: TEdit
-    Left = 341
-    Top = 41
-    Width = 142
+    Left = 431
+    Top = 16
+    Width = 183
     Height = 29
     BorderStyle = bsNone
     TabOrder = 4
   end
   object btn7: TButton
-    Left = 341
-    Top = 209
-    Width = 142
+    Left = 431
+    Top = 227
+    Width = 183
     Height = 25
     Caption = #19978#20256#22270#29255
     Font.Charset = DEFAULT_CHARSET
@@ -400,9 +400,9 @@ object Form3: TForm3
     TabOrder = 5
   end
   object btn6: TButton
-    Left = 341
-    Top = 244
-    Width = 142
+    Left = 431
+    Top = 265
+    Width = 183
     Height = 25
     Caption = #23457#26680#30830#35748
     Font.Charset = DEFAULT_CHARSET

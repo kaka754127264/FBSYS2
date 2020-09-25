@@ -3,7 +3,7 @@ object Form10: TForm10
   Top = 0
   BorderStyle = bsToolWindow
   Caption = #36134#21495
-  ClientHeight = 210
+  ClientHeight = 170
   ClientWidth = 394
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -274,8 +274,8 @@ object Form10: TForm10
   PixelsPerInch = 96
   TextHeight = 25
   object lbl1: TLabel
-    Left = 43
-    Top = 35
+    Left = 21
+    Top = 21
     Width = 38
     Height = 23
     Caption = #36134#21495
@@ -287,8 +287,8 @@ object Form10: TForm10
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 43
-    Top = 74
+    Left = 21
+    Top = 60
     Width = 38
     Height = 23
     Caption = #23494#30721
@@ -300,9 +300,9 @@ object Form10: TForm10
     ParentFont = False
   end
   object edt1: TEdit
-    Left = 110
-    Top = 32
-    Width = 193
+    Left = 80
+    Top = 21
+    Width = 247
     Height = 31
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -313,9 +313,9 @@ object Form10: TForm10
     TabOrder = 0
   end
   object edt2: TEdit
-    Left = 110
-    Top = 69
-    Width = 193
+    Left = 80
+    Top = 58
+    Width = 247
     Height = 29
     Font.Charset = SYMBOL_CHARSET
     Font.Color = clWindowText
@@ -327,8 +327,8 @@ object Form10: TForm10
     TabOrder = 1
   end
   object btn1: TButton
-    Left = 110
-    Top = 120
+    Left = 80
+    Top = 116
     Width = 75
     Height = 40
     Caption = #30331#24405
@@ -342,8 +342,8 @@ object Form10: TForm10
     OnClick = btn1Click
   end
   object btn2: TButton
-    Left = 228
-    Top = 120
+    Left = 252
+    Top = 116
     Width = 75
     Height = 40
     Caption = #20851#38381
@@ -357,19 +357,21 @@ object Form10: TForm10
     OnClick = btn2Click
   end
   object con1: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=FBDB;Data Source=DESKTOP-LA297T7'
+      'Provider=SQLOLEDB.1;Password=123456;Persist Security Info=True;U' +
+      'ser ID=sa;Initial Catalog=FBDB;Data Source=DESKTOP-LA297T7;Use P' +
+      'rocedure for Prepare=1;Auto Translate=True;Packet Size=4096;Work' +
+      'station ID=DESKTOP-LA297T7;Use Encryption for Data=False;Tag wit' +
+      'h column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 336
-    Top = 104
+    Left = 348
+    Top = 83
   end
   object qry1: TADOQuery
     Connection = con1
     Parameters = <>
-    Left = 336
-    Top = 40
+    Left = 349
+    Top = 30
   end
 end

@@ -6,9 +6,6 @@
         <Projects Include="FBSYS.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\FBSYS\SDIAPP.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -26,23 +23,14 @@
     <Target Name="FBSYS:Make">
         <MSBuild Projects="FBSYS.dproj" Targets="Make"/>
     </Target>
-    <Target Name="SDIAPP">
-        <MSBuild Projects="..\FBSYS\SDIAPP.dproj"/>
-    </Target>
-    <Target Name="SDIAPP:Clean">
-        <MSBuild Projects="..\FBSYS\SDIAPP.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="SDIAPP:Make">
-        <MSBuild Projects="..\FBSYS\SDIAPP.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="FBSYS;SDIAPP"/>
+        <CallTarget Targets="FBSYS"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FBSYS:Clean;SDIAPP:Clean"/>
+        <CallTarget Targets="FBSYS:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FBSYS:Make;SDIAPP:Make"/>
+        <CallTarget Targets="FBSYS:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
