@@ -273,4 +273,193 @@ object Form4: TForm4
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
+  object lbl2: TLabel
+    Left = 50
+    Top = 31
+    Width = 84
+    Height = 25
+    Caption = #24320#21457#20154#21592
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl3: TLabel
+    Left = 50
+    Top = 83
+    Width = 84
+    Height = 25
+    Caption = #27979#35797#20154#21592
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl4: TLabel
+    Left = 8
+    Top = 135
+    Width = 126
+    Height = 25
+    Caption = #20135#21697#27979#35797#26085#26399
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object img1: TImage
+    Left = 778
+    Top = 8
+    Width = 598
+    Height = 170
+  end
+  object edt1: TEdit
+    Left = 156
+    Top = 27
+    Width = 180
+    Height = 21
+    TabOrder = 0
+  end
+  object edt2: TEdit
+    Left = 156
+    Top = 79
+    Width = 180
+    Height = 21
+    TabOrder = 1
+  end
+  object edt3: TEdit
+    Left = 156
+    Top = 131
+    Width = 180
+    Height = 21
+    TabOrder = 2
+  end
+  object btn1: TButton
+    Left = 380
+    Top = 10
+    Width = 90
+    Height = 48
+    Caption = #25554#20837
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+  end
+  object btn2: TButton
+    Left = 380
+    Top = 64
+    Width = 90
+    Height = 48
+    Caption = #20462#25913
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object btn3: TButton
+    Left = 380
+    Top = 118
+    Width = 90
+    Height = 48
+    Caption = #28165#31354
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+  end
+  object dbgrd1: TDBGrid
+    Left = 8
+    Top = 184
+    Width = 1424
+    Height = 694
+    DataSource = ds1
+    TabOrder = 6
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object btn4: TButton
+    Left = 476
+    Top = 10
+    Width = 90
+    Height = 48
+    Caption = #21047#26032
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+    OnClick = btn4Click
+  end
+  object btn5: TButton
+    Left = 476
+    Top = 64
+    Width = 90
+    Height = 48
+    Caption = #23548#20986
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+  end
+  object btn6: TButton
+    Left = 476
+    Top = 118
+    Width = 90
+    Height = 48
+    Caption = #35835#22270
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 9
+  end
+  object con1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=FBDB;Data Source=DESKTOP-LA297T7'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 655
+    Top = 71
+  end
+  object qry1: TADOQuery
+    Active = True
+    Connection = con1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'exec select_ZS')
+    Left = 712
+    Top = 71
+  end
+  object ds1: TDataSource
+    DataSet = qry1
+    Left = 701
+    Top = 124
+  end
 end

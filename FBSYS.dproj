@@ -113,6 +113,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="TimerDlg.pas"/>
+        <DCCReference Include="PIC.pas">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="ModelSupport_FBSYS\default.txaPackage"/>
         <None Include="ModelSupport_FBSYS\default.txvpck"/>
         <None Include="ModelSupport_FBSYS\login\default.txvpck"/>
@@ -223,12 +227,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\FBSYS.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>FBSYS.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="ModelSupport_FBSYS\Unit1\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
@@ -250,6 +248,12 @@
                 <DeployFile LocalName="ModelSupport_FBSYS\Project8\default.txaPackage" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win32\Debug\FBSYS.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>FBSYS.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

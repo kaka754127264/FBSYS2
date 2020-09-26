@@ -21,6 +21,8 @@ type
     procedure btn2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
+    procedure edt1KeyPress(Sender: TObject; var Key: Char);
+    procedure edt2KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -84,7 +86,7 @@ procedure TForm10.btn1Click(Sender: TObject);
 type
   TMyStrSel = (用户, 管理员);
 var
-  result, msg, userid, password, str: string;
+  (*result,*) msg, userid, password, str: string;
   strSel: TMyStrSel;
 begin
 
@@ -98,7 +100,7 @@ begin
   //'exec login_FB2'''+userid+''','''+password+''',''0'',''ok'''
   qry1.Close;
   qry1.SQL.Clear;
-  qry1.SQL.Add('exec login_FB2'''+userid+''','''+password+''',''0'',''ok''');
+  qry1.SQL.Add('exec login_FB2''' + userid + ''',''' + password + ''',''0'',''ok''');
   qry1.open;
   //result := qry1.FieldByName('result').AsString;
   msg := qry1.FieldByName('msg').AsString;
@@ -162,6 +164,18 @@ end;
 procedure TForm10.btn2Click(Sender: TObject);
 begin
   Form10.Close;
+end;
+
+procedure TForm10.edt1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    btn1Click(nil);
+end;
+
+procedure TForm10.edt2KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    btn1Click(nil);
 end;
 
 procedure TForm10.FormClose(Sender: TObject; var Action: TCloseAction);
