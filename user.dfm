@@ -448,14 +448,14 @@
     Width = 1228
     Height = 349
     BorderStyle = bsNone
-    Color = clSkyBlue
+    Color = clRed
     DataSource = ds1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = []
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
     PopupMenu = pm1
     TabOrder = 7
@@ -467,36 +467,43 @@
     OnCellClick = dbgrd1CellClick
     Columns = <
       item
+        Color = clMedGray
         Expanded = False
         FieldName = #20135#21697
         Visible = True
       end
       item
+        Color = clBtnFace
         Expanded = False
         FieldName = #22270#29255
         Visible = True
       end
       item
+        Color = clMedGray
         Expanded = False
         FieldName = #30003#35831#20154
         Visible = True
       end
       item
+        Color = clBtnFace
         Expanded = False
         FieldName = #38382#39064#25551#36848
         Visible = True
       end
       item
+        Color = clMedGray
         Expanded = False
         FieldName = #23457#26680#20154
         Visible = True
       end
       item
+        Color = clBtnFace
         Expanded = False
         FieldName = #23457#26680#26085#26399
         Visible = True
       end
       item
+        Color = clMedGray
         Expanded = False
         FieldName = #26102#38388
         Visible = True
@@ -603,12 +610,13 @@
     Top = 89
   end
   object qry1: TADOQuery
+    Active = True
     Connection = con1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
       'exec select_User')
-    Left = 72
+    Left = 73
     Top = 90
     object wdstrngfldqry1产品: TWideStringField
       FieldName = #20135#21697

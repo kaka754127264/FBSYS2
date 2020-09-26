@@ -386,6 +386,7 @@ object Form4: TForm4
     Top = 184
     Width = 1424
     Height = 694
+    Color = clRed
     DataSource = ds1
     TabOrder = 6
     TitleFont.Charset = DEFAULT_CHARSET
@@ -393,6 +394,80 @@ object Form4: TForm4
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = #31649#29702#24207#21015#21495
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #31649#29702#20135#21697
+        Visible = True
+      end
+      item
+        Color = clCream
+        Expanded = False
+        FieldName = #24320#21457#32773
+        Visible = True
+      end
+      item
+        Color = clCream
+        Expanded = False
+        FieldName = #27979#35797#20154#21592
+        Visible = True
+      end
+      item
+        Color = clCream
+        Expanded = False
+        FieldName = #20135#21697#27979#35797#26085#26399
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #31649#29702#19978#20256#26102#38388
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #29992#25143#20135#21697
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #30003#35831#20154
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #38382#39064#25551#36848
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #23457#26680#20154
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #23457#26680#26085#26399
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #22270#29255
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #29992#25143#19978#20256#26102#38388
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #29992#25143#24207#21015#21495
+        Visible = True
+      end>
   end
   object btn4: TButton
     Left = 476
