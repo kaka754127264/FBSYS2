@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, Data.Win.ADODB, ExtDlgs,
-  ExtCtrls, DBCtrls, jpeg;
+  ExtCtrls, DBCtrls, jpeg, Vcl.Menus;
 
 type
   TForm3 = class(TForm)
@@ -33,16 +33,45 @@ type
     dlgOpenPic1: TOpenPictureDialog;
     img1: TImage;
     btn5: TButton;
+    pm1: TPopupMenu;
+    N1: TMenuItem;
+    btn8: TButton;
+    lbl6: TLabel;
+    btn9: TButton;
+    btn10: TButton;
+    btn11: TButton;
+    wdstrngfldqry1产品: TWideStringField;
+    wdstrngfldqry1申请人: TWideStringField;
+    wdstrngfldqry1问题描述: TWideStringField;
+    wdstrngfldqry1审核人: TWideStringField;
+    dtmfldqry1审核日期: TDateTimeField;
+    dtmfldqry1时间: TDateTimeField;
+    blbfldqry1图片: TBlobField;
+    N2: TMenuItem;
+    img2: TImage;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure btn7Click(Sender: TObject);
     procedure btn5Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
+    procedure dbgrd1CellClick(Column: TColumn);
+    procedure btn3Click(Sender: TObject);
+    procedure btn6Click(Sender: TObject);
+    procedure btn4Click(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure btn8Click(Sender: TObject);
+    procedure btn9Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
+    procedure btn10Click(Sender: TObject);
+    procedure btn11Click(Sender: TObject);
+//    procedure UploadPICToSqlServer(UserName, path, ConnStr: string);
   private
     { Private declarations }
     //function GetID: Integer;
-    //function Now: TDateTime;
+
+    var
+      proNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr, pathStr: string;
   public
     { Public declarations }
   end;
@@ -54,30 +83,21 @@ implementation
 
 {$R *.dfm}
 uses
-  TimerDlg;
+  TimerDlg, PIC;
 
-
-
-(*
-function TForm3.GetID: Integer;
-//var
-//  FADOQuery: TADOQuery;
+procedure TForm3.btn10Click(Sender: TObject);
 begin
-  {
-  Result:= -1;
-  FADOQuery:= TADOQuery.Create(Self);
-  with FADOQuery do
-  begin
-    Connection:= con1;
-    Close;
-    SQL.Clear;
-    SQL.Text:= 'select isnull(max(id),0) as maxid from SYS_PIC';
-    Open;
-    Result:= FieldByName('maxid').AsInteger + 1;
-  end;
-  }
+  img2.Picture.Graphic := nil;
 end;
-*)
+
+procedure TForm3.btn11Click(Sender: TObject);
+begin
+    edt1.Text:='';
+    edt4.Text:='';
+    mmo1.Text:='';
+    edt3.Text:='';
+    edt8.Text:='';
+end;
 
 procedure TForm3.btn1Click(Sender: TObject);
 begin
@@ -86,7 +106,7 @@ begin
   qry1.SQL.Add('exec select_User');
   qry1.Open;
   SetDlgAutoClose(2 * 1000, True);
-  ShowMessage('exec select_User');
+  ShowMessage('刷新成功');
 end;
 
 procedure TForm3.btn2Click(Sender: TObject);
@@ -95,49 +115,123 @@ var
 begin
   upLoadTime := DateTimeToStr(now);
   //btn2.Caption:=upLoadTime;
-
   proName := Trim(edt4.Text);
   applicant := Trim(edt1.Text);
   proDescription := Trim(mmo1.Text);
 
   qry1.Close;
   qry1.SQL.Clear;
-  //qry1.SQL.Text := 'exec insert_SYS_User''' + proName + ''',''' + applicant + ''','''+proDescription+''','''+upLoadTime+'''';
-  //qry1.SQL.Add('insert into YourTABLE values(:字段1)');
-  qry1.SQL.Add('exec insert_SYS_User''' + proName + ''',''' + applicant + ''','''+proDescription+''','''+upLoadTime+'''');
-  //qry1.Parameters.ParamByName('字段1').Value := trim(edt1.Text);
-  //qry1.Parameters.ParamByName('字段2').Value := trim(edt4.Text);
+  qry1.SQL.Add('exec insert_SYS_User''' + proName + ''',''' + applicant + ''',''' + proDescription + ''',''' + upLoadTime + '''');
   qry1.ExecSQL;
   btn1.Click;
+
+end;
+
+procedure TForm3.btn3Click(Sender: TObject);
+begin
+  qry1.Close;
+  qry1.SQL.Clear;
+  qry1.SQL.Add('exec delete_SYS_User ''' + proNameStr + '''');
+  qry1.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('删除成功');
+  btn1.Click;
+
+end;
+
+procedure TForm3.btn4Click(Sender: TObject);
+var
+  proNameModify, applicantModify, proDescriptionModify, upLoadTimeModify: string;
+begin
+  upLoadTimeModify := DateTimeToStr(now);
+  proNameModify := Trim(edt4.Text);
+  applicantModify := Trim(edt1.Text);
+  proDescriptionModify := Trim(mmo1.Text);
+  qry1.Close;
+  qry1.SQL.Clear;
+  qry1.SQL.Add('exec modify_SYS_User2''' + proNameModify + ''',''' + applicantModify + ''',''' + proDescriptionModify + ''',''' + upLoadTimeModify + ''',''' + proNameStr + '''');
+  qry1.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('修改成功');
+  btn1.Click;
+
 end;
 
 procedure TForm3.btn5Click(Sender: TObject);
 begin
   img1.Picture.Graphic := nil;
   img1.Tag := 1;
+  btn8.Caption := '读图';
+  lbl6.Caption := '路径';
+end;
+
+procedure TForm3.btn6Click(Sender: TObject);
+var
+  ad, rD: string;
+begin
+  ad := Trim(edt3.Text);
+//  rD := DateTimeToStr(now);
+  rD := Trim(edt8.Text);
+  qry1.Close;
+  qry1.SQL.Clear;
+  qry1.SQL.Add('exec modify_SYS_User''' + ad + ''',''' + rD + ''',''' + proNameStr + '''');
+  qry1.ExecSQL;
+  btn1.Click;
+
 end;
 
 procedure TForm3.btn7Click(Sender: TObject);
 var
-  FStream: TMemoryStream;
+  PicStream: TMemoryStream;
+begin
+  if img1.Picture.Graphic <> nil then
+  begin
+    PicStream := TMemoryStream.Create; //  创建内存流
+    img1.Picture.Graphic.SaveToStream(PicStream);
+    qry1.Edit;
+    TBlobField(qry1.FieldByName('图片')).LoadFromStream(PicStream);
+    qry1.Post;
+    PicStream.Free;
+  end;
+
+  btn1.Click;
+end;
+
+procedure TForm3.btn8Click(Sender: TObject);
 begin
   if dlgOpenPic1.Execute then
     img1.Picture.LoadFromFile(dlgOpenPic1.FileName)
   else
     Exit;
   img1.Tag := 1;
+  btn8.Caption := '已加载';
+  lbl6.Caption := dlgOpenPic1.FileName;
+  pathStr := lbl6.Caption;
 
-  FStream := TMemoryStream.Create;
-  img1.Picture.Graphic.SaveToStream(FStream);
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage(pathStr);
+  //btn1.Click;
+end;
 
-  FStream.Free;
-  {
+procedure TForm3.btn9Click(Sender: TObject);
+begin
   qry1.Close;
-  qry1.SQL.Text := 'insert into SYS_User(proNumber, imageDescription)values(:ID, :PIC)';
-  qry1.Parameters.ParamByName('ID').Value := GetID;
-  qry1.Parameters.ParamByName('PIC').LoadFromStream(FStream, ftBlob);
+  qry1.SQL.Clear;
+  qry1.SQL.Add('delete from SYS_User');
   qry1.ExecSQL;
-  }
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('已清空！');
+  btn1.Click;
+end;
+
+procedure TForm3.dbgrd1CellClick(Column: TColumn);
+begin
+  proNameStr := dbgrd1.DataSource.DataSet.FieldByName('产品').AsString;
+  applicantStr := dbgrd1.DataSource.DataSet.FieldByName('申请人').AsString;
+  proDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('问题描述').AsString;
+  imageDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('图片').AsString;
+  auditorStr := dbgrd1.DataSource.DataSet.FieldByName('审核人').AsString;
+  reviewDateStr := dbgrd1.DataSource.DataSet.FieldByName('审核日期').AsString;
 end;
 
 procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -149,6 +243,54 @@ end;
 procedure TForm3.FormDestroy(Sender: TObject);
 begin
   Form3 := nil; //在窗口销毁时，把Form3变量设为nil
+end;
+
+procedure TForm3.N1Click(Sender: TObject);
+begin
+        //删除该行
+  qry1.Close;
+  qry1.SQL.Clear;
+  qry1.SQL.Add('exec delete_SYS_User ''' + proNameStr + '''');
+  qry1.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('删除成功');
+  btn1.Click;
+end;
+
+procedure TForm3.N2Click(Sender: TObject);
+var
+  PicStream: TMemoryStream;
+  JpgImg: TJpegimage;
+begin
+     //查看图片
+  if not qry1.FieldByName('图片').IsNull then
+  begin
+    PicStream := TMemoryStream.Create;
+
+    TBlobField(qry1.FieldByName('图片')).SaveToStream(PicStream);
+    PicStream.Position := 0;
+    img2.Picture.Graphic := nil;
+
+    JpgImg := TJpegimage.Create;
+    JpgImg.LoadFromStream(PicStream);
+
+    img2.Picture.Graphic := JpgImg;
+
+    if not Assigned(Form1) then //确保只创建一个窗口
+    begin
+      Form1 := TForm1.Create(Application);
+    end;
+    Form1.Show;
+    Form1.img1.Stretch := True;
+    Form1.img1.Picture.Graphic := JpgImg;
+    JpgImg.Free;
+    PicStream.Free;
+
+  end
+  else
+  begin
+    ShowMessage('对不起，图片为空.');
+  end;
 end;
 
 end.

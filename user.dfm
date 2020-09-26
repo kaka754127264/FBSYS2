@@ -1,4 +1,4 @@
-object Form3: TForm3
+﻿object Form3: TForm3
   Left = 0
   Top = 0
   BorderStyle = bsToolWindow
@@ -340,9 +340,29 @@ object Form3: TForm3
   end
   object img1: TImage
     Left = 892
+    Top = 72
+    Width = 289
+    Height = 146
+    Stretch = True
+  end
+  object lbl6: TLabel
+    Left = 892
     Top = 45
-    Width = 348
-    Height = 190
+    Width = 24
+    Height = 14
+    Caption = #36335#24452
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object img2: TImage
+    Left = 31
+    Top = 154
+    Width = 64
+    Height = 64
     Stretch = True
   end
   object mmo1: TMemo
@@ -386,7 +406,7 @@ object Form3: TForm3
   end
   object edt4: TEdit
     Left = 454
-    Top = 8
+    Top = 15
     Width = 296
     Height = 29
     BorderStyle = bsNone
@@ -395,7 +415,7 @@ object Form3: TForm3
   object btn7: TButton
     Left = 892
     Top = 8
-    Width = 183
+    Width = 98
     Height = 31
     Caption = #19978#20256#22270#29255
     Font.Charset = DEFAULT_CHARSET
@@ -409,7 +429,7 @@ object Form3: TForm3
   end
   object btn6: TButton
     Left = 1015
-    Top = 605
+    Top = 614
     Width = 235
     Height = 88
     Caption = #23457#26680#30830#35748
@@ -420,25 +440,67 @@ object Form3: TForm3
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+    OnClick = btn6Click
   end
   object dbgrd1: TDBGrid
     Left = 22
-    Top = 241
+    Top = 259
     Width = 1228
     Height = 349
+    BorderStyle = bsNone
+    Color = clSkyBlue
     DataSource = ds1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -17
     Font.Name = 'Tahoma'
     Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    PopupMenu = pm1
     TabOrder = 7
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -21
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = dbgrd1CellClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = #20135#21697
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #22270#29255
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #30003#35831#20154
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #38382#39064#25551#36848
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #23457#26680#20154
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #23457#26680#26085#26399
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = #26102#38388
+        Visible = True
+      end>
   end
   object btn1: TButton
     Left = 787
@@ -465,6 +527,7 @@ object Form3: TForm3
     Height = 48
     Caption = #21024#38500
     TabOrder = 10
+    OnClick = btn3Click
   end
   object btn4: TButton
     Left = 787
@@ -473,6 +536,7 @@ object Form3: TForm3
     Height = 48
     Caption = #20462#25913
     TabOrder = 11
+    OnClick = btn4Click
   end
   object btn5: TButton
     Left = 1091
@@ -482,6 +546,48 @@ object Form3: TForm3
     Caption = #28165#22270
     TabOrder = 12
     OnClick = btn5Click
+  end
+  object btn8: TButton
+    Left = 996
+    Top = 8
+    Width = 90
+    Height = 31
+    Caption = #35835#22270
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 13
+    OnClick = btn8Click
+  end
+  object btn9: TButton
+    Left = 1187
+    Top = 62
+    Width = 90
+    Height = 48
+    Caption = #28165#31354
+    TabOrder = 14
+    OnClick = btn9Click
+  end
+  object btn10: TButton
+    Left = 1187
+    Top = 116
+    Width = 90
+    Height = 48
+    Caption = #20851#38381#32553#30053
+    TabOrder = 15
+    OnClick = btn10Click
+  end
+  object btn11: TButton
+    Left = 1187
+    Top = 170
+    Width = 90
+    Height = 48
+    Caption = #28165#31354#25991#23383
+    TabOrder = 16
+    OnClick = btn11Click
   end
   object con1: TADOConnection
     Connected = True
@@ -493,26 +599,62 @@ object Form3: TForm3
       'se;Tag with column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 41
+    Left = 31
     Top = 89
   end
   object qry1: TADOQuery
-    Active = True
     Connection = con1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
       'exec select_User')
-    Left = 40
-    Top = 147
+    Left = 72
+    Top = 90
+    object wdstrngfldqry1产品: TWideStringField
+      FieldName = #20135#21697
+      Size = 10
+    end
+    object wdstrngfldqry1申请人: TWideStringField
+      FieldName = #30003#35831#20154
+      Size = 10
+    end
+    object wdstrngfldqry1问题描述: TWideStringField
+      FieldName = #38382#39064#25551#36848
+      Size = 50
+    end
+    object wdstrngfldqry1审核人: TWideStringField
+      FieldName = #23457#26680#20154
+      Size = 10
+    end
+    object dtmfldqry1审核日期: TDateTimeField
+      FieldName = #23457#26680#26085#26399
+    end
+    object dtmfldqry1时间: TDateTimeField
+      FieldName = #26102#38388
+    end
+    object blbfldqry1图片: TBlobField
+      FieldName = #22270#29255
+    end
   end
   object ds1: TDataSource
     DataSet = qry1
-    Left = 39
-    Top = 200
+    Left = 8
+    Top = 14
   end
   object dlgOpenPic1: TOpenPictureDialog
     Left = 1188
     Top = 4
+  end
+  object pm1: TPopupMenu
+    Left = 417
+    Top = 614
+    object N1: TMenuItem
+      Caption = #21024#38500#35813#34892
+      OnClick = N1Click
+    end
+    object N2: TMenuItem
+      Caption = #26597#30475#22270#29255
+      OnClick = N2Click
+    end
   end
 end
