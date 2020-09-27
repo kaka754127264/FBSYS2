@@ -313,10 +313,11 @@
     ParentFont = False
   end
   object img1: TImage
-    Left = 778
+    Left = 584
     Top = 8
-    Width = 598
+    Width = 170
     Height = 170
+    Stretch = True
   end
   object edt1: TEdit
     Left = 156
@@ -340,8 +341,8 @@
     TabOrder = 2
   end
   object btn1: TButton
-    Left = 380
-    Top = 10
+    Left = 375
+    Top = 40
     Width = 90
     Height = 48
     Caption = #25554#20837
@@ -352,24 +353,11 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 3
-  end
-  object btn2: TButton
-    Left = 380
-    Top = 64
-    Width = 90
-    Height = 48
-    Caption = #20462#25913
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -21
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 4
+    OnClick = btn1Click
   end
   object btn3: TButton
-    Left = 380
-    Top = 118
+    Left = 375
+    Top = 94
     Width = 90
     Height = 48
     Caption = #28165#31354
@@ -379,11 +367,11 @@
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 4
   end
   object btn4: TButton
-    Left = 476
-    Top = 10
+    Left = 471
+    Top = 40
     Width = 90
     Height = 48
     Caption = #21047#26032
@@ -393,12 +381,12 @@
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
     OnClick = btn4Click
   end
   object btn5: TButton
-    Left = 476
-    Top = 64
+    Left = 471
+    Top = 94
     Width = 90
     Height = 48
     Caption = #23548#20986
@@ -408,21 +396,7 @@
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 7
-  end
-  object btn6: TButton
-    Left = 476
-    Top = 118
-    Width = 90
-    Height = 48
-    Caption = #35835#22270
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -21
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 8
+    TabOrder = 6
   end
   object dbgrd1: TDBGrid
     Left = 8
@@ -431,12 +405,14 @@
     Height = 686
     DataSource = ds1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-    TabOrder = 9
+    PopupMenu = pm1
+    TabOrder = 7
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = dbgrd1CellClick
   end
   object con1: TADOConnection
     Connected = True
@@ -445,8 +421,19 @@
       'fo=False;Initial Catalog=FBDB;Data Source=DESKTOP-LA297T7'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 655
-    Top = 70
+    Left = 799
+    Top = 50
+  end
+  object pm1: TPopupMenu
+    Left = 802
+    Top = 106
+    object N1: TMenuItem
+      Caption = #21024#38500#35813#34892
+    end
+    object N2: TMenuItem
+      Caption = #26597#30475#22270#29255
+      OnClick = N2Click
+    end
   end
   object qry1: TADOQuery
     Active = True
@@ -455,8 +442,8 @@
     Parameters = <>
     SQL.Strings = (
       'exec select_ZS')
-    Left = 711
-    Top = 69
+    Left = 886
+    Top = 61
     object intgrfldqry1管理序列号: TIntegerField
       FieldName = #31649#29702#24207#21015#21495
     end
@@ -505,11 +492,7 @@
   end
   object ds1: TDataSource
     DataSet = qry1
-    Left = 701
-    Top = 124
-  end
-  object pm1: TPopupMenu
-    Left = 636
-    Top = 131
+    Left = 898
+    Top = 135
   end
 end
