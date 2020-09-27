@@ -560,7 +560,7 @@
     Top = 8
     Width = 90
     Height = 48
-    Caption = #26032#24314
+    Caption = #35774#32622#24207#21015
     TabOrder = 16
     OnClick = btn12Click
   end

@@ -17,12 +17,15 @@ type
     btn2: TButton;
     con1: TADOConnection;
     qry1: TADOQuery;
+    btn3: TButton;
+    btn4: TButton;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure edt1KeyPress(Sender: TObject; var Key: Char);
     procedure edt2KeyPress(Sender: TObject; var Key: Char);
+    procedure btn3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -86,7 +89,7 @@ procedure TForm10.btn1Click(Sender: TObject);
 type
   TMyStrSel = (用户, 管理员);
 var
-  result, msg, userid, password, str: string;
+  (*result,*)   msg, userid, password, str: string;
   strSel: TMyStrSel;
 begin
 
@@ -164,6 +167,17 @@ end;
 procedure TForm10.btn2Click(Sender: TObject);
 begin
   Form10.Close;
+end;
+
+procedure TForm10.btn3Click(Sender: TObject);
+begin
+  if not Assigned(Form3) then //确保只创建一个窗口
+  begin
+    Form3 := TForm3.Create(Application);
+  end;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage(msg);
+  Form3.ShowModal;
 end;
 
 procedure TForm10.edt1KeyPress(Sender: TObject; var Key: Char);

@@ -71,6 +71,7 @@ type
     procedure btn11Click(Sender: TObject);
     procedure tempAdd(num, tempStrStr: string; qry: TADOQuery);
     procedure tempDelete(num: string; qry: TADOQuery);
+    procedure tempAll(qry: TADOQuery);
     procedure btn12Click(Sender: TObject);
 //    procedure UploadPICToSqlServer(UserName, path, ConnStr: string);
   private
@@ -144,10 +145,20 @@ procedure TForm3.tempDelete(num: string; qry: TADOQuery);
 begin
   qry.Close;
   qry.SQL.Clear;
-  qry.SQL.Add('exec delete_SYS_ZS ''' + num + '''');
+  qry.SQL.Add('exec delete_SYS_ZS ''' + num + ''',''' + num + '''');
   qry.ExecSQL;
   SetDlgAutoClose(2 * 1000, True);
   ShowMessage('序列号已删除成功');
+end;
+
+procedure TForm3.tempAll(qry: TADOQuery);
+begin
+  qry.Close;
+  qry.SQL.Clear;
+  qry.SQL.Add('exec delete_ALL');
+  qry.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('已清空');
 end;
 
 procedure TForm3.btn2Click(Sender: TObject);
@@ -172,6 +183,7 @@ end;
 
 procedure TForm3.btn3Click(Sender: TObject);
 begin
+  tempDelete(proNumberStr, qry1);
   qry1.Close;
   qry1.SQL.Clear;
   qry1.SQL.Add('exec delete_SYS_User ''' + proNameStr + '''');
@@ -258,12 +270,7 @@ end;
 
 procedure TForm3.btn9Click(Sender: TObject);
 begin
-  qry1.Close;
-  qry1.SQL.Clear;
-  qry1.SQL.Add('delete from SYS_User');
-  qry1.ExecSQL;
-  SetDlgAutoClose(2 * 1000, True);
-  ShowMessage('已清空！');
+  tempAll(qry1);
   btn1.Click;
 end;
 
@@ -300,6 +307,7 @@ end;
 procedure TForm3.N1Click(Sender: TObject);
 begin
         //删除该行
+  tempDelete(proNumberStr, qry1);
   qry1.Close;
   qry1.SQL.Clear;
   qry1.SQL.Add('exec delete_SYS_User ''' + proNameStr + '''');

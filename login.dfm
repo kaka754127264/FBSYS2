@@ -274,8 +274,8 @@ object Form10: TForm10
   PixelsPerInch = 96
   TextHeight = 25
   object lbl1: TLabel
-    Left = 21
-    Top = 21
+    Left = 8
+    Top = 8
     Width = 38
     Height = 23
     Caption = #36134#21495
@@ -287,8 +287,8 @@ object Form10: TForm10
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 21
-    Top = 60
+    Left = 8
+    Top = 47
     Width = 38
     Height = 23
     Caption = #23494#30721
@@ -299,10 +299,23 @@ object Form10: TForm10
     Font.Style = []
     ParentFont = False
   end
+  object lbl3: TLabel
+    Left = 311
+    Top = 8
+    Width = 60
+    Height = 16
+    Caption = #24555#25463#25353#38062
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object edt1: TEdit
     Left = 80
-    Top = 21
-    Width = 247
+    Top = 8
+    Width = 218
     Height = 31
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -315,8 +328,8 @@ object Form10: TForm10
   end
   object edt2: TEdit
     Left = 80
-    Top = 58
-    Width = 247
+    Top = 45
+    Width = 218
     Height = 29
     Font.Charset = SYMBOL_CHARSET
     Font.Color = clWindowText
@@ -330,7 +343,7 @@ object Form10: TForm10
   end
   object btn1: TButton
     Left = 80
-    Top = 116
+    Top = 91
     Width = 75
     Height = 40
     Caption = #30331#24405
@@ -344,8 +357,8 @@ object Form10: TForm10
     OnClick = btn1Click
   end
   object btn2: TButton
-    Left = 252
-    Top = 116
+    Left = 223
+    Top = 91
     Width = 75
     Height = 40
     Caption = #20851#38381
@@ -358,6 +371,24 @@ object Form10: TForm10
     TabOrder = 3
     OnClick = btn2Click
   end
+  object btn3: TButton
+    Left = 311
+    Top = 64
+    Width = 75
+    Height = 25
+    Caption = #29992#25143
+    TabOrder = 4
+    OnClick = btn3Click
+  end
+  object btn4: TButton
+    Left = 311
+    Top = 30
+    Width = 75
+    Height = 25
+    Caption = #31649#29702
+    TabOrder = 5
+    OnClick = btn4Click
+  end
   object con1: TADOConnection
     Connected = True
     ConnectionString = 
@@ -368,13 +399,13 @@ object Form10: TForm10
       'se;Tag with column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 348
-    Top = 83
+    Left = 45
+    Top = 96
   end
   object qry1: TADOQuery
     Connection = con1
     Parameters = <>
-    Left = 349
-    Top = 30
+    Left = 10
+    Top = 98
   end
 end

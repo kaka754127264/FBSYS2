@@ -359,6 +359,7 @@ object Form10: TForm10
     OnClick = btn2Click
   end
   object con1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
       'fo=False;User ID=sa;Initial Catalog=FBDB;Data Source=DESKTOP-LA2' +

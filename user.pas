@@ -113,12 +113,9 @@ end;
 
 procedure TForm3.btn12Click(Sender: TObject);
 begin
-
   lbl8.caption := inttostr(proNumInt + 1);
   proNumInt := proNumInt + 1;
   tempStr := inttostr(proNumInt);
-  tempAdd(inttostr(proNumInt), tempStr, qry1);
-
 end;
 
 procedure TForm3.btn1Click(Sender: TObject);
@@ -171,7 +168,8 @@ begin
   proName := Trim(edt4.Text);
   applicant := Trim(edt1.Text);
   proDescription := Trim(mmo1.Text);
-  btn12.Click;
+
+  tempAdd(inttostr(proNumInt), tempStr, qry1);
 
   qry1.Close;
   qry1.SQL.Clear;

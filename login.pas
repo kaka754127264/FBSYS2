@@ -17,14 +17,21 @@ type
     btn2: TButton;
     con1: TADOConnection;
     qry1: TADOQuery;
+    btn3: TButton;
+    btn4: TButton;
+    lbl3: TLabel;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure edt1KeyPress(Sender: TObject; var Key: Char);
     procedure edt2KeyPress(Sender: TObject; var Key: Char);
+    procedure btn3Click(Sender: TObject);
+    procedure btn4Click(Sender: TObject);
   private
     { Private declarations }
+    var
+      MsgStr: string;
   public
     { Public declarations }
   end;
@@ -86,7 +93,7 @@ procedure TForm10.btn1Click(Sender: TObject);
 type
   TMyStrSel = (用户, 管理员);
 var
-  (*result,*) msg, userid, password, str: string;
+  (*result,*)      msg, userid, password: string;
   strSel: TMyStrSel;
 begin
 
@@ -106,8 +113,8 @@ begin
   msg := qry1.FieldByName('msg').AsString;
  //btn1.Caption:=result;
 
-  str := msg;
-  strSel := TMyStrSel(GetEnumValue(TypeInfo(TMyStrSel), str));
+  MsgStr := msg;
+  strSel := TMyStrSel(GetEnumValue(TypeInfo(TMyStrSel), MsgStr));
 
   case strSel of
     用户:
@@ -164,6 +171,26 @@ end;
 procedure TForm10.btn2Click(Sender: TObject);
 begin
   Form10.Close;
+end;
+
+procedure TForm10.btn3Click(Sender: TObject);
+begin
+  if not Assigned(Form3) then //确保只创建一个窗口
+  begin
+    Form3 := TForm3.Create(Application);
+  end;
+
+  Form3.ShowModal;
+end;
+
+procedure TForm10.btn4Click(Sender: TObject);
+begin
+  if not Assigned(Form4) then //确保只创建一个窗口
+  begin
+    Form4 := TForm4.Create(Application);
+  end;
+
+  Form4.ShowModal;
 end;
 
 procedure TForm10.edt1KeyPress(Sender: TObject; var Key: Char);
