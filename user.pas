@@ -23,13 +23,10 @@ type
     lbl2: TLabel;
     lbl1: TLabel;
     con1: TADOConnection;
-    qry1: TADOQuery;
-    dbgrd1: TDBGrid;
     btn1: TButton;
     btn2: TButton;
     btn3: TButton;
     btn4: TButton;
-    ds1: TDataSource;
     dlgOpenPic1: TOpenPictureDialog;
     img1: TImage;
     btn5: TButton;
@@ -40,15 +37,22 @@ type
     btn9: TButton;
     btn10: TButton;
     btn11: TButton;
-    wdstrngfldqry1产品: TWideStringField;
-    wdstrngfldqry1申请人: TWideStringField;
-    wdstrngfldqry1问题描述: TWideStringField;
-    wdstrngfldqry1审核人: TWideStringField;
-    dtmfldqry1审核日期: TDateTimeField;
-    dtmfldqry1时间: TDateTimeField;
-    blbfldqry1图片: TBlobField;
     N2: TMenuItem;
     img2: TImage;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    btn12: TButton;
+    qry1: TADOQuery;
+    ds1: TDataSource;
+    dbgrd1: TDBGrid;
+    qry1产品: TWideStringField;
+    qry1图片: TBlobField;
+    qry1申请人: TWideStringField;
+    qry1问题描述: TWideStringField;
+    qry1审核人: TWideStringField;
+    qry1审核日期: TDateTimeField;
+    qry1时间: TDateTimeField;
+    intgrfldqry1序列号: TIntegerField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure btn1Click(Sender: TObject);
@@ -65,19 +69,25 @@ type
     procedure N2Click(Sender: TObject);
     procedure btn10Click(Sender: TObject);
     procedure btn11Click(Sender: TObject);
+    procedure tempAdd(num, tempStrStr: string; qry: TADOQuery);
+    procedure tempDelete(num: string; qry: TADOQuery);
+    procedure tempAll(qry: TADOQuery);
+    procedure btn12Click(Sender: TObject);
 //    procedure UploadPICToSqlServer(UserName, path, ConnStr: string);
   private
     { Private declarations }
     //function GetID: Integer;
 
     var
-      proNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr, pathStr: string;
+      proNumberStr, proNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr, pathStr: string;
   public
     { Public declarations }
   end;
 
 var
   Form3: TForm3;
+  proNumInt: integer;
+  tempStr: string;
 
 implementation
 
@@ -92,11 +102,23 @@ end;
 
 procedure TForm3.btn11Click(Sender: TObject);
 begin
-    edt1.Text:='';
-    edt4.Text:='';
-    mmo1.Text:='';
-    edt3.Text:='';
-    edt8.Text:='';
+  edt1.Text := '';
+  edt4.Text := '';
+  mmo1.Text := '';
+  edt3.Text := '';
+  edt8.Text := '';
+  //proNumberStr := qry2.FieldByName('管理序列号').AsString;
+  //btn11.Caption := proNumberStr;
+end;
+
+procedure TForm3.btn12Click(Sender: TObject);
+begin
+
+  lbl8.caption := inttostr(proNumInt + 1);
+  proNumInt := proNumInt + 1;
+  tempStr := inttostr(proNumInt);
+  tempAdd(inttostr(proNumInt), tempStr, qry1);
+
 end;
 
 procedure TForm3.btn1Click(Sender: TObject);
@@ -109,19 +131,51 @@ begin
   ShowMessage('刷新成功');
 end;
 
+procedure TForm3.tempAdd(num, tempStrStr: string; qry: TADOQuery);
+begin
+  qry.Close;
+  qry.SQL.Clear;
+  qry.SQL.Add('exec insert_SYS_ZS ''' + num + ''' ,''' + tempStrStr + '''');
+  qry.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('序列号已新建成功');
+end;
+
+procedure TForm3.tempDelete(num: string; qry: TADOQuery);
+begin
+  qry.Close;
+  qry.SQL.Clear;
+  qry.SQL.Add('exec delete_SYS_ZS ''' + num + ''',''' + num + '''');
+  qry.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('序列号已删除成功');
+end;
+
+procedure TForm3.tempAll(qry: TADOQuery);
+begin
+  qry.Close;
+  qry.SQL.Clear;
+  qry.SQL.Add('exec delete_ALL');
+  qry.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('已清空');
+end;
+
 procedure TForm3.btn2Click(Sender: TObject);
 var
   proName, applicant, proDescription, upLoadTime: string;
 begin
+
   upLoadTime := DateTimeToStr(now);
   //btn2.Caption:=upLoadTime;
   proName := Trim(edt4.Text);
   applicant := Trim(edt1.Text);
   proDescription := Trim(mmo1.Text);
+  btn12.Click;
 
   qry1.Close;
   qry1.SQL.Clear;
-  qry1.SQL.Add('exec insert_SYS_User''' + proName + ''',''' + applicant + ''',''' + proDescription + ''',''' + upLoadTime + '''');
+  qry1.SQL.Add('exec insert_SYS_User''' + proName + ''',''' + applicant + ''',''' + proDescription + ''',''' + upLoadTime + ''',''' + tempStr + '''');
   qry1.ExecSQL;
   btn1.Click;
 
@@ -129,6 +183,7 @@ end;
 
 procedure TForm3.btn3Click(Sender: TObject);
 begin
+  tempDelete(proNumberStr, qry1);
   qry1.Close;
   qry1.SQL.Clear;
   qry1.SQL.Add('exec delete_SYS_User ''' + proNameStr + '''');
@@ -215,23 +270,20 @@ end;
 
 procedure TForm3.btn9Click(Sender: TObject);
 begin
-  qry1.Close;
-  qry1.SQL.Clear;
-  qry1.SQL.Add('delete from SYS_User');
-  qry1.ExecSQL;
-  SetDlgAutoClose(2 * 1000, True);
-  ShowMessage('已清空！');
+  tempAll(qry1);
   btn1.Click;
 end;
 
 procedure TForm3.dbgrd1CellClick(Column: TColumn);
 begin
   proNameStr := dbgrd1.DataSource.DataSet.FieldByName('产品').AsString;
-  applicantStr := dbgrd1.DataSource.DataSet.FieldByName('申请人').AsString;
-  proDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('问题描述').AsString;
-  imageDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('图片').AsString;
-  auditorStr := dbgrd1.DataSource.DataSet.FieldByName('审核人').AsString;
-  reviewDateStr := dbgrd1.DataSource.DataSet.FieldByName('审核日期').AsString;
+  proNumberStr := dbgrd1.DataSource.DataSet.FieldByName('序列号').AsString;
+//  applicantStr := dbgrd1.DataSource.DataSet.FieldByName('申请人').AsString;
+//  proDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('问题描述').AsString;
+//  imageDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('图片').AsString;
+//  auditorStr := dbgrd1.DataSource.DataSet.FieldByName('审核人').AsString;
+//  reviewDateStr := dbgrd1.DataSource.DataSet.FieldByName('审核日期').AsString;
+
 end;
 
 procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -245,9 +297,17 @@ begin
   Form3 := nil; //在窗口销毁时，把Form3变量设为nil
 end;
 
+{
+procedure TForm3.lbl7Click(Sender: TObject);
+begin
+  lbl8.caption := inttostr(n + 1);
+  n := n + 1;
+end;
+}
 procedure TForm3.N1Click(Sender: TObject);
 begin
         //删除该行
+  tempDelete(proNumberStr, qry1);
   qry1.Close;
   qry1.SQL.Clear;
   qry1.SQL.Add('exec delete_SYS_User ''' + proNameStr + '''');

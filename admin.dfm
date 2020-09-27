@@ -1,4 +1,4 @@
-object Form4: TForm4
+﻿object Form4: TForm4
   Left = 0
   Top = 0
   BorderStyle = bsToolWindow
@@ -381,94 +381,6 @@ object Form4: TForm4
     ParentFont = False
     TabOrder = 5
   end
-  object dbgrd1: TDBGrid
-    Left = 8
-    Top = 184
-    Width = 1424
-    Height = 694
-    Color = clRed
-    DataSource = ds1
-    TabOrder = 6
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = #31649#29702#24207#21015#21495
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #31649#29702#20135#21697
-        Visible = True
-      end
-      item
-        Color = clCream
-        Expanded = False
-        FieldName = #24320#21457#32773
-        Visible = True
-      end
-      item
-        Color = clCream
-        Expanded = False
-        FieldName = #27979#35797#20154#21592
-        Visible = True
-      end
-      item
-        Color = clCream
-        Expanded = False
-        FieldName = #20135#21697#27979#35797#26085#26399
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #31649#29702#19978#20256#26102#38388
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #29992#25143#20135#21697
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #30003#35831#20154
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #38382#39064#25551#36848
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #23457#26680#20154
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #23457#26680#26085#26399
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #22270#29255
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #29992#25143#19978#20256#26102#38388
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = #29992#25143#24207#21015#21495
-        Visible = True
-      end>
-  end
   object btn4: TButton
     Left = 476
     Top = 10
@@ -481,7 +393,7 @@ object Form4: TForm4
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 6
     OnClick = btn4Click
   end
   object btn5: TButton
@@ -496,7 +408,7 @@ object Form4: TForm4
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
   end
   object btn6: TButton
     Left = 476
@@ -510,7 +422,21 @@ object Form4: TForm4
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    TabOrder = 8
+  end
+  object dbgrd1: TDBGrid
+    Left = 8
+    Top = 195
+    Width = 1413
+    Height = 686
+    DataSource = ds1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 9
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
   end
   object con1: TADOConnection
     Connected = True
@@ -520,7 +446,7 @@ object Form4: TForm4
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 655
-    Top = 71
+    Top = 70
   end
   object qry1: TADOQuery
     Active = True
@@ -529,12 +455,61 @@ object Form4: TForm4
     Parameters = <>
     SQL.Strings = (
       'exec select_ZS')
-    Left = 712
-    Top = 71
+    Left = 711
+    Top = 69
+    object intgrfldqry1管理序列号: TIntegerField
+      FieldName = #31649#29702#24207#21015#21495
+    end
+    object wdstrngfldqry1开发者: TWideStringField
+      FieldName = #24320#21457#32773
+      Size = 10
+    end
+    object wdstrngfldqry1测试人员: TWideStringField
+      FieldName = #27979#35797#20154#21592
+      Size = 10
+    end
+    object dtmfldqry1产品测试日期: TDateTimeField
+      FieldName = #20135#21697#27979#35797#26085#26399
+    end
+    object dtmfldqry1管理上传时间: TDateTimeField
+      FieldName = #31649#29702#19978#20256#26102#38388
+    end
+    object wdstrngfldqry1用户产品: TWideStringField
+      FieldName = #29992#25143#20135#21697
+      Size = 10
+    end
+    object wdstrngfldqry1申请人: TWideStringField
+      FieldName = #30003#35831#20154
+      Size = 10
+    end
+    object wdstrngfldqry1问题描述: TWideStringField
+      FieldName = #38382#39064#25551#36848
+      Size = 50
+    end
+    object wdstrngfldqry1审核人: TWideStringField
+      FieldName = #23457#26680#20154
+      Size = 10
+    end
+    object dtmfldqry1审核日期: TDateTimeField
+      FieldName = #23457#26680#26085#26399
+    end
+    object blbfldqry1图片: TBlobField
+      FieldName = #22270#29255
+    end
+    object dtmfldqry1用户上传时间: TDateTimeField
+      FieldName = #29992#25143#19978#20256#26102#38388
+    end
+    object intgrfldqry1用户序列号: TIntegerField
+      FieldName = #29992#25143#24207#21015#21495
+    end
   end
   object ds1: TDataSource
     DataSet = qry1
     Left = 701
     Top = 124
+  end
+  object pm1: TPopupMenu
+    Left = 636
+    Top = 131
   end
 end

@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, Data.Win.ADODB, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, Data.Win.ADODB, Vcl.ExtCtrls,
+  Vcl.Menus;
 
 type
   TForm4 = class(TForm)
@@ -18,7 +19,6 @@ type
     btn1: TButton;
     btn2: TButton;
     btn3: TButton;
-    dbgrd1: TDBGrid;
     btn4: TButton;
     con1: TADOConnection;
     qry1: TADOQuery;
@@ -26,11 +26,29 @@ type
     btn5: TButton;
     btn6: TButton;
     img1: TImage;
+    pm1: TPopupMenu;
+    intgrfldqry1管理序列号: TIntegerField;
+    wdstrngfldqry1开发者: TWideStringField;
+    wdstrngfldqry1测试人员: TWideStringField;
+    dtmfldqry1产品测试日期: TDateTimeField;
+    dtmfldqry1管理上传时间: TDateTimeField;
+    wdstrngfldqry1用户产品: TWideStringField;
+    wdstrngfldqry1申请人: TWideStringField;
+    wdstrngfldqry1问题描述: TWideStringField;
+    wdstrngfldqry1审核人: TWideStringField;
+    dtmfldqry1审核日期: TDateTimeField;
+    blbfldqry1图片: TBlobField;
+    dtmfldqry1用户上传时间: TDateTimeField;
+    intgrfldqry1用户序列号: TIntegerField;
+    dbgrd1: TDBGrid;
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btn4Click(Sender: TObject);
+    procedure dbgrd1CellClick(Column: TColumn);
   private
     { Private declarations }
+    var
+      adminProNumberStr，adminProNameStr, developerStr, testerStr,proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr: string;
   public
     { Public declarations }
   end;
@@ -42,7 +60,8 @@ implementation
 
 {$R *.dfm}
 
-uses TimerDlg;
+uses
+  TimerDlg;
 
 procedure TForm4.btn4Click(Sender: TObject);
 begin
@@ -52,6 +71,27 @@ begin
   qry1.Open;
   SetDlgAutoClose(2 * 1000, True);
   ShowMessage('exec select_ZS');
+end;
+
+procedure TForm4.dbgrd1CellClick(Column: TColumn);
+(*adminProNumberStr，adminProNameStr,developerStr,testerStr,proTestDateStr,adminUpTimeStr,userUpTimeStr,
+    userProNumberStr,userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr,
+     auditorStr, reviewDateStr*)
+begin
+  //adminProNumberStr := dbgrd1.DataSource.DataSet.FieldByName('管理序列号').AsString;
+  //adminProNameStr := dbgrd1.DataSource.DataSet.FieldByName('管理产品').AsString;
+  developerStr := dbgrd1.DataSource.DataSet.FieldByName('开发者').AsString;
+  testerStr := dbgrd1.DataSource.DataSet.FieldByName('测试人员').AsString;
+  proTestDateStr := dbgrd1.DataSource.DataSet.FieldByName('产品测试日期').AsString;
+  adminUpTimeStr := dbgrd1.DataSource.DataSet.FieldByName('管理上传时间').AsString;
+  userUpTimeStr := dbgrd1.DataSource.DataSet.FieldByName('用户上传时间').AsString;
+  userProNumberStr := dbgrd1.DataSource.DataSet.FieldByName('用户序列号').AsString;
+  userProNameStr := dbgrd1.DataSource.DataSet.FieldByName('用户产品').AsString;
+  applicantStr := dbgrd1.DataSource.DataSet.FieldByName('申请人').AsString;
+  proDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('问题描述').AsString;
+  imageDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('图片').AsString;
+  auditorStr := dbgrd1.DataSource.DataSet.FieldByName('审核人').AsString;
+  reviewDateStr := dbgrd1.DataSource.DataSet.FieldByName('审核日期').AsString;
 end;
 
 procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
