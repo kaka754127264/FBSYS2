@@ -535,6 +535,7 @@
     Height = 48
     Caption = #28165#31354
     TabOrder = 13
+    Visible = False
     OnClick = btn9Click
   end
   object btn10: TButton

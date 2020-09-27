@@ -368,6 +368,7 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnClick = btn3Click
   end
   object btn4: TButton
     Left = 471
@@ -427,9 +428,6 @@
   object pm1: TPopupMenu
     Left = 802
     Top = 106
-    object N1: TMenuItem
-      Caption = #21024#38500#35813#34892
-    end
     object N2: TMenuItem
       Caption = #26597#30475#22270#29255
       OnClick = N2Click

@@ -535,6 +535,7 @@
     Height = 48
     Caption = #28165#31354
     TabOrder = 13
+    Visible = False
     OnClick = btn9Click
   end
   object btn10: TButton
@@ -560,15 +561,15 @@
     Top = 8
     Width = 90
     Height = 48
-    Caption = #26032#24314
+    Caption = #35774#32622#24207#21015
     TabOrder = 16
     OnClick = btn12Click
   end
   object dbgrd1: TDBGrid
-    Left = 19
-    Top = 236
-    Width = 1231
-    Height = 372
+    Left = 8
+    Top = 234
+    Width = 1264
+    Height = 374
     DataSource = ds1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -584,6 +585,7 @@
     TitleFont.Height = -21
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = dbgrd1CellClick
   end
   object con1: TADOConnection
     Connected = True
@@ -622,31 +624,34 @@
     SQL.Strings = (
       'exec select_User')
     Left = 48
-    Top = 89
-    object wdstrngfldqry1产品: TWideStringField
+    Top = 88
+    object qry1产品: TWideStringField
       FieldName = #20135#21697
       Size = 10
     end
-    object blbfldqry1图片: TBlobField
+    object qry1图片: TBlobField
       FieldName = #22270#29255
     end
-    object wdstrngfldqry1申请人: TWideStringField
+    object qry1申请人: TWideStringField
       FieldName = #30003#35831#20154
       Size = 10
     end
-    object wdstrngfldqry1问题描述: TWideStringField
+    object qry1问题描述: TWideStringField
       FieldName = #38382#39064#25551#36848
       Size = 50
     end
-    object wdstrngfldqry1审核人: TWideStringField
+    object qry1审核人: TWideStringField
       FieldName = #23457#26680#20154
       Size = 10
     end
-    object dtmfldqry1审核日期: TDateTimeField
+    object qry1审核日期: TDateTimeField
       FieldName = #23457#26680#26085#26399
     end
-    object dtmfldqry1时间: TDateTimeField
+    object qry1时间: TDateTimeField
       FieldName = #26102#38388
+    end
+    object intgrfldqry1序列号: TIntegerField
+      FieldName = #24207#21015#21495
     end
   end
   object ds1: TDataSource

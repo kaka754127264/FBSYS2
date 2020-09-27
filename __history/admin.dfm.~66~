@@ -313,9 +313,9 @@
     ParentFont = False
   end
   object img1: TImage
-    Left = 778
+    Left = 584
     Top = 8
-    Width = 598
+    Width = 170
     Height = 170
     Stretch = True
   end
@@ -353,6 +353,7 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnClick = btn1Click
   end
   object btn3: TButton
     Left = 375
@@ -411,6 +412,7 @@
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = dbgrd1CellClick
   end
   object con1: TADOConnection
     Connected = True
@@ -419,8 +421,19 @@
       'fo=False;Initial Catalog=FBDB;Data Source=DESKTOP-LA297T7'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 655
-    Top = 70
+    Left = 799
+    Top = 50
+  end
+  object pm1: TPopupMenu
+    Left = 802
+    Top = 106
+    object N1: TMenuItem
+      Caption = #21024#38500#35813#34892
+    end
+    object N2: TMenuItem
+      Caption = #26597#30475#22270#29255
+      OnClick = N2Click
+    end
   end
   object qry1: TADOQuery
     Active = True
@@ -429,8 +442,8 @@
     Parameters = <>
     SQL.Strings = (
       'exec select_ZS')
-    Left = 710
-    Top = 69
+    Left = 886
+    Top = 61
     object intgrfldqry1管理序列号: TIntegerField
       FieldName = #31649#29702#24207#21015#21495
     end
@@ -479,18 +492,7 @@
   end
   object ds1: TDataSource
     DataSet = qry1
-    Left = 701
-    Top = 124
-  end
-  object pm1: TPopupMenu
-    Left = 636
-    Top = 131
-    object N1: TMenuItem
-      Caption = #21024#38500#35813#34892
-    end
-    object N2: TMenuItem
-      Caption = #26597#30475#22270#29255
-      OnClick = N2Click
-    end
+    Left = 898
+    Top = 135
   end
 end

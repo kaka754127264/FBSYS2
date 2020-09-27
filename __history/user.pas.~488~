@@ -71,6 +71,7 @@ type
     procedure btn11Click(Sender: TObject);
     procedure tempAdd(num, tempStrStr: string; qry: TADOQuery);
     procedure tempDelete(num: string; qry: TADOQuery);
+    procedure tempAll(qry: TADOQuery);
     procedure btn12Click(Sender: TObject);
 //    procedure UploadPICToSqlServer(UserName, path, ConnStr: string);
   private
@@ -106,18 +107,17 @@ begin
   mmo1.Text := '';
   edt3.Text := '';
   edt8.Text := '';
+  proNumInt := 0;
+  lbl8.caption := inttostr(proNumInt + 1);
   //proNumberStr := qry2.FieldByName('管理序列号').AsString;
   //btn11.Caption := proNumberStr;
 end;
 
 procedure TForm3.btn12Click(Sender: TObject);
 begin
-
   lbl8.caption := inttostr(proNumInt + 1);
   proNumInt := proNumInt + 1;
   tempStr := inttostr(proNumInt);
-  tempAdd(inttostr(proNumInt), tempStr, qry1);
-
 end;
 
 procedure TForm3.btn1Click(Sender: TObject);
@@ -150,6 +150,16 @@ begin
   ShowMessage('序列号已删除成功');
 end;
 
+procedure TForm3.tempAll(qry: TADOQuery);
+begin
+  qry.Close;
+  qry.SQL.Clear;
+  qry.SQL.Add('exec delete_ALL');
+  qry.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('已清空');
+end;
+
 procedure TForm3.btn2Click(Sender: TObject);
 var
   proName, applicant, proDescription, upLoadTime: string;
@@ -160,7 +170,8 @@ begin
   proName := Trim(edt4.Text);
   applicant := Trim(edt1.Text);
   proDescription := Trim(mmo1.Text);
-  btn12.Click;
+
+  tempAdd(inttostr(proNumInt), tempStr, qry1);
 
   qry1.Close;
   qry1.SQL.Clear;
@@ -259,12 +270,7 @@ end;
 
 procedure TForm3.btn9Click(Sender: TObject);
 begin
-  qry1.Close;
-  qry1.SQL.Clear;
-  qry1.SQL.Add('delete from SYS_User');
-  qry1.ExecSQL;
-  SetDlgAutoClose(2 * 1000, True);
-  ShowMessage('已清空！');
+  tempAll(qry1);
   btn1.Click;
 end;
 

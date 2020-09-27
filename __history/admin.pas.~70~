@@ -50,9 +50,10 @@ type
   private
     { Private declarations }
     var
-      adPNumberStr，adPNameStr, developerStr, testerStr, proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr: string;
+      adPNumberStr,adPNameStr, developerStr, testerStr, proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr: string;
   public
     { Public declarations }
+
   end;
 
 var
@@ -75,12 +76,12 @@ begin
   proTestDateModify := Trim(edt3.Text);
   qry1.Close;
   qry1.SQL.Clear;
-  qry1.SQL.Add('exec modify_SYS_ZS''' + developerModify + ''',''' + testerModify + ''',''' + proTestDateModify + ''',''' + loadTimeModify + ''',''' + auditorStr + '''');
+  qry1.SQL.Add('exec modify_SYS_ZS''' + developerModify + ''',''' + testerModify + ''',''' + proTestDateModify + ''',''' + loadTimeModify + ''',''' + adPNumberStr + '''');
   qry1.ExecSQL;
-  SetDlgAutoClose(2 * 1000, True);
-  ShowMessage('成功');
 
   btn4.Click;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('成功');
 
 end;
 
@@ -98,8 +99,9 @@ procedure TForm4.dbgrd1CellClick(Column: TColumn);
 (*adminProNumberStr，adminProNameStr,developerStr,testerStr,proTestDateStr,adminUpTimeStr,userUpTimeStr,
     userProNumberStr,userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr,
      auditorStr, reviewDateStr*)
+
 begin
-//  adPNumberStr := dbgrd1.DataSource.DataSet.FieldByName('管理序列号').AsString;
+    adPNumberStr := dbgrd1.DataSource.DataSet.FieldByName('管理序列号').AsString;
   //adPNameStr := dbgrd1.DataSource.DataSet.FieldByName('管理产品').AsString;
 //  developerStr := dbgrd1.DataSource.DataSet.FieldByName('开发者').AsString;
 //  testerStr := dbgrd1.DataSource.DataSet.FieldByName('测试人员').AsString;
@@ -111,7 +113,7 @@ begin
 //  applicantStr := dbgrd1.DataSource.DataSet.FieldByName('申请人').AsString;
 //  proDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('问题描述').AsString;
 //  imageDescriptionStr := dbgrd1.DataSource.DataSet.FieldByName('图片').AsString;
-  auditorStr := dbgrd1.DataSource.DataSet.FieldByName('审核人').AsString;
+//  auditorStr := dbgrd1.DataSource.DataSet.FieldByName('审核人').AsString;
 //  reviewDateStr := dbgrd1.DataSource.DataSet.FieldByName('审核日期').AsString;
 end;
 

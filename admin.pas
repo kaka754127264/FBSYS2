@@ -24,7 +24,6 @@ type
     img1: TImage;
     pm1: TPopupMenu;
     dbgrd1: TDBGrid;
-    N1: TMenuItem;
     N2: TMenuItem;
     qry1: TADOQuery;
     intgrfldqry1管理序列号: TIntegerField;
@@ -47,10 +46,11 @@ type
     procedure dbgrd1CellClick(Column: TColumn);
     procedure N2Click(Sender: TObject);
     procedure btn1Click(Sender: TObject);
+    procedure btn3Click(Sender: TObject);
   private
     { Private declarations }
     var
-      adPNumberStr,adPNameStr, developerStr, testerStr, proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr: string;
+      adPNumberStr, adPNameStr, developerStr, testerStr, proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr: string;
   public
     { Public declarations }
 
@@ -64,7 +64,7 @@ implementation
 {$R *.dfm}
 
 uses
-  TimerDlg, PIC;
+  TimerDlg, PIC, user;
 
 procedure TForm4.btn1Click(Sender: TObject);
 var
@@ -85,6 +85,11 @@ begin
 
 end;
 
+procedure TForm4.btn3Click(Sender: TObject);
+begin
+  Form3.tempAll(qry1);
+end;
+
 procedure TForm4.btn4Click(Sender: TObject);
 begin
   qry1.Close;
@@ -101,7 +106,7 @@ procedure TForm4.dbgrd1CellClick(Column: TColumn);
      auditorStr, reviewDateStr*)
 
 begin
-    adPNumberStr := dbgrd1.DataSource.DataSet.FieldByName('管理序列号').AsString;
+  adPNumberStr := dbgrd1.DataSource.DataSet.FieldByName('管理序列号').AsString;
   //adPNameStr := dbgrd1.DataSource.DataSet.FieldByName('管理产品').AsString;
 //  developerStr := dbgrd1.DataSource.DataSet.FieldByName('开发者').AsString;
 //  testerStr := dbgrd1.DataSource.DataSet.FieldByName('测试人员').AsString;

@@ -107,6 +107,8 @@ begin
   mmo1.Text := '';
   edt3.Text := '';
   edt8.Text := '';
+  proNumInt := 0;
+  lbl8.caption := inttostr(proNumInt);
   //proNumberStr := qry2.FieldByName('π‹¿Ì–Ú¡–∫≈').AsString;
   //btn11.Caption := proNumberStr;
 end;
