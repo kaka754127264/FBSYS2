@@ -311,6 +311,7 @@ object Form10: TForm10
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    Visible = False
   end
   object edt1: TEdit
     Left = 80
@@ -373,11 +374,12 @@ object Form10: TForm10
   end
   object btn3: TButton
     Left = 311
-    Top = 64
+    Top = 61
     Width = 75
     Height = 25
     Caption = #29992#25143
     TabOrder = 4
+    Visible = False
     OnClick = btn3Click
   end
   object btn4: TButton
@@ -387,6 +389,7 @@ object Form10: TForm10
     Height = 25
     Caption = #31649#29702
     TabOrder = 5
+    Visible = False
     OnClick = btn4Click
   end
   object con1: TADOConnection

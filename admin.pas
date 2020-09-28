@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, Data.Win.ADODB, Vcl.ExtCtrls,
-  Vcl.Menus, DBCtrls, jpeg;
+  Vcl.Menus, DBCtrls, jpeg, ComObj;
 
 type
   TForm4 = class(TForm)
@@ -40,6 +40,7 @@ type
     dtmfldqry1用户上传时间: TDateTimeField;
     intgrfldqry1用户序列号: TIntegerField;
     ds1: TDataSource;
+    dlgSave1: TSaveDialog;
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btn4Click(Sender: TObject);
@@ -47,10 +48,11 @@ type
     procedure N2Click(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
+    procedure btn5Click(Sender: TObject);
   private
     { Private declarations }
     var
-      adPNumberStr, adPNameStr, developerStr, testerStr, proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr: string;
+      adPNumberStr{, adPNameStr, developerStr, testerStr, proTestDateStr, adminUpTimeStr, userUpTimeStr, userProNumberStr, userProNameStr, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr}: string;
   public
     { Public declarations }
 
@@ -64,7 +66,7 @@ implementation
 {$R *.dfm}
 
 uses
-  TimerDlg, PIC, user;
+  TimerDlg, PIC, user,DBGrid2Excel;
 
 procedure TForm4.btn1Click(Sender: TObject);
 var
@@ -98,6 +100,11 @@ begin
   qry1.Open;
   SetDlgAutoClose(2 * 1000, True);
   ShowMessage('exec select_ZS');
+end;
+
+procedure TForm4.btn5Click(Sender: TObject);
+begin
+     DBGrid2Excel.DBGridToExcel(dbgrd1);
 end;
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);

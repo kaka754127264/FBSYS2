@@ -6,7 +6,8 @@ uses
   user in 'user.pas' {Form3},
   admin in 'admin.pas' {Form4},
   TimerDlg in 'TimerDlg.pas',
-  PIC in 'PIC.pas' {Form1};
+  PIC in 'PIC.pas' {Form1},
+  DBGrid2Excel in 'DBGrid2Excel.pas';
 
 {$R *.res}
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2020/09/25 09:36:08.000.015,H:\code\FBSYS2\ProjectGroup2.groupproj=H:\code\ProjectGroup2.groupproj</Transaction>
+    <Transaction>2020/09/25 09:36:08.000.015,H:\code\ProjectGroup2.groupproj=H:\code\FBSYS2\ProjectGroup2.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
 		<Projects ActiveProject="H:\code\FBSYS2\FBSYS.dproj"/>

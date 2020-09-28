@@ -398,6 +398,7 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+    OnClick = btn5Click
   end
   object dbgrd1: TDBGrid
     Left = 8
@@ -492,5 +493,9 @@
     DataSet = qry1
     Left = 898
     Top = 135
+  end
+  object dlgSave1: TSaveDialog
+    Left = 960
+    Top = 121
   end
 end
