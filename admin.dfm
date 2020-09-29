@@ -323,21 +323,21 @@
     Left = 96
     Top = 8
     Width = 90
-    Height = 25
+    Height = 21
     TabOrder = 0
   end
   object edt2: TEdit
     Left = 96
     Top = 35
     Width = 90
-    Height = 25
+    Height = 21
     TabOrder = 1
   end
   object edt3: TEdit
     Left = 96
     Top = 62
     Width = 90
-    Height = 25
+    Height = 21
     TabOrder = 2
   end
   object btn1: TButton
@@ -356,7 +356,7 @@
     OnClick = btn1Click
   end
   object btn3: TButton
-    Left = 234
+    Left = 201
     Top = 39
     Width = 60
     Height = 25
@@ -400,22 +400,6 @@
     TabOrder = 6
     OnClick = btn5Click
   end
-  object dbgrd1: TDBGrid
-    Left = 8
-    Top = 102
-    Width = 1415
-    Height = 779
-    DataSource = ds1
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-    PopupMenu = pm1
-    TabOrder = 7
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-    OnCellClick = dbgrd1CellClick
-  end
   object btn2: TButton
     Left = 267
     Top = 68
@@ -428,8 +412,38 @@
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
     OnClick = btn2Click
+  end
+  object btn6: TButton
+    Left = 267
+    Top = 39
+    Width = 60
+    Height = 25
+    Caption = #23548#20837
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+  end
+  object dbgrd1: TDBGrid
+    Left = 8
+    Top = 102
+    Width = 1415
+    Height = 776
+    DataSource = ds1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    PopupMenu = pm1
+    TabOrder = 9
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    OnCellClick = dbgrd1CellClick
   end
   object con1: TADOConnection
     Connected = True
@@ -442,12 +456,20 @@
     Top = 10
   end
   object pm1: TPopupMenu
-    Left = 449
+    Left = 450
     Top = 53
     object N2: TMenuItem
       Caption = #26597#30475#22270#29255
       OnClick = N2Click
     end
+    object N1: TMenuItem
+      Caption = #26597#30475#38468#20214#22270
+      OnClick = N1Click
+    end
+  end
+  object dlgSave1: TSaveDialog
+    Left = 533
+    Top = 55
   end
   object qry1: TADOQuery
     Active = True
@@ -456,8 +478,8 @@
     Parameters = <>
     SQL.Strings = (
       'exec select_ZS')
-    Left = 490
-    Top = 56
+    Left = 488
+    Top = 53
     object intgrfldqry1管理序列号: TIntegerField
       FieldName = #31649#29702#24207#21015#21495
     end
@@ -503,14 +525,92 @@
     object intgrfldqry1用户序列号: TIntegerField
       FieldName = #29992#25143#24207#21015#21495
     end
+    object intgrfldqry1图片序号: TIntegerField
+      FieldName = #22270#29255#24207#21495
+    end
+    object blbfldqry1图片一: TBlobField
+      FieldName = #22270#29255#19968
+    end
+    object blbfldqry1图片二: TBlobField
+      FieldName = #22270#29255#20108
+    end
+    object blbfldqry1图片三: TBlobField
+      FieldName = #22270#29255#19977
+    end
+    object blbfldqry1图片四: TBlobField
+      FieldName = #22270#29255#22235
+    end
+    object blbfldqry1图片五: TBlobField
+      FieldName = #22270#29255#20116
+    end
+    object blbfldqry1图片六: TBlobField
+      FieldName = #22270#29255#20845
+    end
+    object blbfldqry1图片七: TBlobField
+      FieldName = #22270#29255#19971
+    end
+    object blbfldqry1图片八: TBlobField
+      FieldName = #22270#29255#20843
+    end
+    object blbfldqry1图片九: TBlobField
+      FieldName = #22270#29255#20061
+    end
+    object blbfldqry1图片十: TBlobField
+      FieldName = #22270#29255#21313
+    end
+    object intgrfldqry1图片序列: TIntegerField
+      FieldName = #22270#29255#24207#21015
+    end
   end
   object ds1: TDataSource
     DataSet = qry1
-    Left = 449
+    Left = 447
     Top = 11
   end
-  object dlgSave1: TSaveDialog
-    Left = 533
-    Top = 55
+  object qry2: TADOQuery
+    Active = True
+    Connection = con1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'exec select_SYS_PIC')
+    Left = 532
+    Top = 9
+    object intgrfldqry2ID: TIntegerField
+      FieldName = 'ID'
+    end
+    object blbfldqry2图片一: TBlobField
+      FieldName = #22270#29255#19968
+    end
+    object blbfldqry2图片二: TBlobField
+      FieldName = #22270#29255#20108
+    end
+    object blbfldqry2图片三: TBlobField
+      FieldName = #22270#29255#19977
+    end
+    object blbfldqry2图片四: TBlobField
+      FieldName = #22270#29255#22235
+    end
+    object blbfldqry2图片五: TBlobField
+      FieldName = #22270#29255#20116
+    end
+    object blbfldqry2图片六: TBlobField
+      FieldName = #22270#29255#20845
+    end
+    object blbfldqry2图片七: TBlobField
+      FieldName = #22270#29255#19971
+    end
+    object blbfldqry2图片八: TBlobField
+      FieldName = #22270#29255#20843
+    end
+    object blbfldqry2图片九: TBlobField
+      FieldName = #22270#29255#20061
+    end
+    object blbfldqry2图片十: TBlobField
+      FieldName = #22270#29255#21313
+    end
+    object intgrfldqry2图片序列: TIntegerField
+      FieldName = #22270#29255#24207#21015
+    end
   end
 end

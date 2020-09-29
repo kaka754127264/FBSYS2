@@ -270,6 +270,7 @@
   OldCreateOrder = False
   Position = poScreenCenter
   OnClose = FormClose
+  OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 25
@@ -377,7 +378,6 @@
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    OnClick = lbl7Click
   end
   object lbl8: TLabel
     Left = 326
@@ -391,6 +391,89 @@
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+  end
+  object lbl9: TLabel
+    Left = 8
+    Top = 409
+    Width = 40
+    Height = 14
+    Caption = #38468#21152#22270':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object img3: TImage
+    Left = 134
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img4: TImage
+    Left = 204
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img5: TImage
+    Left = 274
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img6: TImage
+    Left = 344
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img7: TImage
+    Left = 414
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img8: TImage
+    Left = 484
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img9: TImage
+    Left = 554
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img10: TImage
+    Left = 624
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img11: TImage
+    Left = 694
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
+  end
+  object img12: TImage
+    Left = 764
+    Top = 717
+    Width = 64
+    Height = 64
+    Stretch = True
   end
   object mmo1: TMemo
     Left = 38
@@ -412,6 +495,7 @@
     Width = 90
     Height = 33
     TabOrder = 1
+    OnKeyPress = edt3KeyPress
   end
   object edt1: TEdit
     Left = 38
@@ -426,6 +510,7 @@
     Width = 90
     Height = 33
     TabOrder = 3
+    OnKeyPress = edt8KeyPress
   end
   object edt4: TEdit
     Left = 164
@@ -525,7 +610,7 @@
     OnClick = btn4Click
   end
   object btn5: TButton
-    Left = 704
+    Left = 703
     Top = 39
     Width = 60
     Height = 25
@@ -636,6 +721,360 @@
     TitleFont.Style = []
     OnCellClick = dbgrd1CellClick
   end
+  object dbgrd2: TDBGrid
+    Left = 8
+    Top = 440
+    Width = 865
+    Height = 271
+    DataSource = ds2
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    PopupMenu = pm2
+    TabOrder = 18
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object btn13: TButton
+    Left = 467
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 19
+    OnClick = btn13Click
+  end
+  object btn14: TButton
+    Left = 541
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 20
+    OnClick = btn14Click
+  end
+  object btn15: TButton
+    Left = 615
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 21
+    OnClick = btn15Click
+  end
+  object btn16: TButton
+    Left = 687
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'9'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 22
+    OnClick = btn16Click
+  end
+  object btn17: TButton
+    Left = 763
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'10'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 23
+    OnClick = btn17Click
+  end
+  object btn18: TButton
+    Left = 95
+    Top = 409
+    Width = 70
+    Height = 25
+    Hint = 'dlgOpenPic2.FileName|dlgOpenPic2.FileName'
+    Caption = #21152#36733'1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 24
+    OnClick = btn18Click
+  end
+  object btn19: TButton
+    Left = 171
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 25
+    OnClick = btn19Click
+  end
+  object btn20: TButton
+    Left = 245
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 26
+    OnClick = btn20Click
+  end
+  object btn21: TButton
+    Left = 319
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 27
+    OnClick = btn21Click
+  end
+  object btn22: TButton
+    Left = 393
+    Top = 409
+    Width = 70
+    Height = 25
+    Caption = #21152#36733'5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 28
+    OnClick = btn22Click
+  end
+  object btn23: TButton
+    Left = 138
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 29
+    OnClick = btn23Click
+  end
+  object btn24: TButton
+    Left = 208
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 30
+    OnClick = btn24Click
+  end
+  object btn25: TButton
+    Left = 276
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 31
+    OnClick = btn25Click
+  end
+  object btn26: TButton
+    Left = 348
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 32
+    OnClick = btn26Click
+  end
+  object btn27: TButton
+    Left = 418
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 33
+    OnClick = btn27Click
+  end
+  object btn28: TButton
+    Left = 488
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 34
+    OnClick = btn28Click
+  end
+  object btn29: TButton
+    Left = 560
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 35
+    OnClick = btn29Click
+  end
+  object btn30: TButton
+    Left = 631
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 36
+    OnClick = btn30Click
+  end
+  object btn31: TButton
+    Left = 702
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 37
+    OnClick = btn31Click
+  end
+  object btn32: TButton
+    Left = 773
+    Top = 787
+    Width = 60
+    Height = 25
+    Caption = #19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 38
+    OnClick = btn32Click
+  end
+  object btn33: TButton
+    Left = 748
+    Top = 818
+    Width = 85
+    Height = 25
+    Caption = #19968#38190#19978#20256
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 39
+    OnClick = btn33Click
+  end
+  object btn34: TButton
+    Left = 657
+    Top = 818
+    Width = 85
+    Height = 25
+    Caption = #28165#31354#22270#29255
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 40
+    OnClick = btn34Click
+  end
   object con1: TADOConnection
     Connected = True
     ConnectionString = 
@@ -646,16 +1085,16 @@
       'se;Tag with column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 13
-    Top = 425
+    Left = 4
+    Top = 816
   end
   object dlgOpenPic1: TOpenPictureDialog
-    Left = 167
-    Top = 427
+    Left = 29
+    Top = 768
   end
   object pm1: TPopupMenu
-    Left = 125
-    Top = 428
+    Left = 41
+    Top = 859
     object N1: TMenuItem
       Caption = #21024#38500#35813#34892
       OnClick = N1Click
@@ -672,8 +1111,8 @@
     Parameters = <>
     SQL.Strings = (
       'exec select_User')
-    Left = 50
-    Top = 425
+    Left = 5
+    Top = 858
     object qry1产品: TWideStringField
       FieldName = #20135#21697
       Size = 10
@@ -702,10 +1141,112 @@
     object intgrfldqry1序列号: TIntegerField
       FieldName = #24207#21015#21495
     end
+    object intgrfldqry1图片序号: TIntegerField
+      FieldName = #22270#29255#24207#21495
+    end
   end
   object ds1: TDataSource
     DataSet = qry1
-    Left = 86
-    Top = 426
+    Left = 42
+    Top = 817
+  end
+  object qry2: TADOQuery
+    Active = True
+    Connection = con1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'exec select_SYS_PIC')
+    Left = 23
+    Top = 717
+    object intgrfldqry2ID: TIntegerField
+      FieldName = 'ID'
+    end
+    object blbfldqry2图片一: TBlobField
+      FieldName = #22270#29255#19968
+    end
+    object blbfldqry2图片二: TBlobField
+      FieldName = #22270#29255#20108
+    end
+    object blbfldqry2图片三: TBlobField
+      FieldName = #22270#29255#19977
+    end
+    object blbfldqry2图片四: TBlobField
+      FieldName = #22270#29255#22235
+    end
+    object blbfldqry2图片五: TBlobField
+      FieldName = #22270#29255#20116
+    end
+    object blbfldqry2图片六: TBlobField
+      FieldName = #22270#29255#20845
+    end
+    object blbfldqry2图片七: TBlobField
+      FieldName = #22270#29255#19971
+    end
+    object blbfldqry2图片八: TBlobField
+      FieldName = #22270#29255#20843
+    end
+    object blbfldqry2图片九: TBlobField
+      FieldName = #22270#29255#20061
+    end
+    object blbfldqry2图片十: TBlobField
+      FieldName = #22270#29255#21313
+    end
+    object intgrfldqry2图片序列: TIntegerField
+      FieldName = #22270#29255#24207#21015
+    end
+  end
+  object ds2: TDataSource
+    DataSet = qry2
+    Left = 70
+    Top = 718
+  end
+  object dlgOpenPic2: TOpenPictureDialog
+    Left = 165
+    Top = 856
+  end
+  object dlgOpenPic3: TOpenPictureDialog
+    Left = 235
+    Top = 855
+  end
+  object dlgOpenPic4: TOpenPictureDialog
+    Left = 305
+    Top = 856
+  end
+  object dlgOpenPic5: TOpenPictureDialog
+    Left = 373
+    Top = 858
+  end
+  object dlgOpenPic6: TOpenPictureDialog
+    Left = 445
+    Top = 858
+  end
+  object dlgOpenPic7: TOpenPictureDialog
+    Left = 516
+    Top = 857
+  end
+  object dlgOpenPic8: TOpenPictureDialog
+    Left = 583
+    Top = 855
+  end
+  object dlgOpenPic9: TOpenPictureDialog
+    Left = 659
+    Top = 856
+  end
+  object dlgOpenPic10: TOpenPictureDialog
+    Left = 726
+    Top = 856
+  end
+  object dlgOpenPic11: TOpenPictureDialog
+    Left = 802
+    Top = 856
+  end
+  object pm2: TPopupMenu
+    Left = 78
+    Top = 768
+    object N3: TMenuItem
+      Caption = #26597#30475#20869#23481
+      OnClick = N3Click
+    end
   end
 end
