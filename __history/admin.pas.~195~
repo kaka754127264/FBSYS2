@@ -134,7 +134,7 @@ procedure TForm4.btn2Click(Sender: TObject);
 var
   FExcel, FWorkBook, FWorksheet: OleVariant;
   col, row, jcol, jrow: integer;
-  Cell1, Cell2, Range: Variant;
+  Cell1, Cell2, Range,varCells: Variant;
 
 begin
 //
@@ -175,16 +175,15 @@ begin
   end;
   Inc(col);
 
-//  while not dbgrd1.DataSource.DataSet.Eof do
-//  begin
-//     for col := 0 to dbgrd1.Columns.Count - 1 do
-//     begin
-//       FWorksheet.cells[jcol + 1, col + 1] := dbgrd1.Columns.Items[col].Field.AsString;
-//       FWorksheet.cells[1,]
-//     end;
-//     Inc(jcol);
-//     dbgrd1.DataSource.DataSet.Next;
-//  end;
+  while not dbgrd1.DataSource.DataSet.Eof do
+  begin
+     for iCount := 0 to dbgrd1.Columns.Count - 1 do
+     begin
+       Sheet.cells[jCount + 1, iCount + 1] := dbgrd1.Columns.Items[iCount].Field.AsString;
+     end;
+     Inc(jCount);
+     dbgrd1.DataSource.DataSet.Next;
+  end;
 
 
 
@@ -208,8 +207,6 @@ end;
 procedure TForm4.btn5Click(Sender: TObject);
 begin
   DBGrid2Excel.DBGridToExcel(dbgrd1);
-
-
 end;
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);

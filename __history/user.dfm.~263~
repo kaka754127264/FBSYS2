@@ -1061,11 +1061,11 @@
     OnClick = btn33Click
   end
   object btn34: TButton
-    Left = 644
+    Left = 657
     Top = 818
-    Width = 100
+    Width = 85
     Height = 25
-    Caption = #28165#31354#32553#30053#22270
+    Caption = #28165#31354#32553#30053
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -1074,21 +1074,6 @@
     ParentFont = False
     TabOrder = 40
     OnClick = btn34Click
-  end
-  object btn35: TButton
-    Left = 538
-    Top = 818
-    Width = 100
-    Height = 25
-    Caption = #23548#20986#22270#29255#21040'Excel'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 41
-    OnClick = btn35Click
   end
   object con1: TADOConnection
     Connected = True

@@ -1061,11 +1061,11 @@
     OnClick = btn33Click
   end
   object btn34: TButton
-    Left = 644
+    Left = 657
     Top = 818
-    Width = 100
+    Width = 85
     Height = 25
-    Caption = #28165#31354#32553#30053#22270
+    Caption = #28165#31354#22270#29255
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -19
@@ -1074,21 +1074,6 @@
     ParentFont = False
     TabOrder = 40
     OnClick = btn34Click
-  end
-  object btn35: TButton
-    Left = 538
-    Top = 818
-    Width = 100
-    Height = 25
-    Caption = #23548#20986#22270#29255#21040'Excel'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 41
-    OnClick = btn35Click
   end
   object con1: TADOConnection
     Connected = True
@@ -1128,33 +1113,33 @@
       'exec select_User')
     Left = 5
     Top = 858
-    object intgrfldqry1序列号: TIntegerField
-      FieldName = #24207#21015#21495
-    end
-    object wdstrngfldqry1产品: TWideStringField
+    object qry1产品: TWideStringField
       FieldName = #20135#21697
       Size = 10
     end
-    object blbfldqry1图片: TBlobField
+    object qry1图片: TBlobField
       FieldName = #22270#29255
     end
-    object wdstrngfldqry1申请人: TWideStringField
+    object qry1申请人: TWideStringField
       FieldName = #30003#35831#20154
       Size = 10
     end
-    object wdstrngfldqry1问题描述: TWideStringField
+    object qry1问题描述: TWideStringField
       FieldName = #38382#39064#25551#36848
-      Size = 200
+      Size = 50
     end
-    object wdstrngfldqry1审核人: TWideStringField
+    object qry1审核人: TWideStringField
       FieldName = #23457#26680#20154
       Size = 10
     end
-    object dtmfldqry1审核日期: TDateTimeField
+    object qry1审核日期: TDateTimeField
       FieldName = #23457#26680#26085#26399
     end
-    object dtmfldqry1时间: TDateTimeField
+    object qry1时间: TDateTimeField
       FieldName = #26102#38388
+    end
+    object intgrfldqry1序列号: TIntegerField
+      FieldName = #24207#21015#21495
     end
     object intgrfldqry1图片序号: TIntegerField
       FieldName = #22270#29255#24207#21495

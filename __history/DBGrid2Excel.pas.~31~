@@ -7,7 +7,7 @@ uses
 
 type
   TUpAniInfoProc = procedure(const sInfo: string) of object;
-//  procedure InsertPicture(ActiveSheet: OleVariant; ImageFilePath: string; ImageHeight, PictureTop: Integer);
+  procedure InsertPicture(ActiveSheet: OleVariant; ImageFilePath: string; ImageHeight, PictureTop: Integer);
 
 function DBGridToExcel(dgrSource: TDBGrid; UpAniInfo: TUpAniInfoProc = nil): Integer;
 

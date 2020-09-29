@@ -502,7 +502,7 @@
   object dbgrd1: TDBGrid
     Left = 8
     Top = 102
-    Width = 1424
+    Width = 1409
     Height = 776
     DataSource = ds1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]

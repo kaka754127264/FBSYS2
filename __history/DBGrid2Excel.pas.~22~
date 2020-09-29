@@ -7,7 +7,6 @@ uses
 
 type
   TUpAniInfoProc = procedure(const sInfo: string) of object;
-//  procedure InsertPicture(ActiveSheet: OleVariant; ImageFilePath: string; ImageHeight, PictureTop: Integer);
 
 function DBGridToExcel(dgrSource: TDBGrid; UpAniInfo: TUpAniInfoProc = nil): Integer;
 
@@ -117,23 +116,7 @@ begin
     dgrSource.DataSource.DataSet.FreeBookmark(CurPos);
   end;
   dgrSource.DataSource.DataSet.EnableControls;
-
-
-
 end;
-
-
-//procedure InsertPicture(ActiveSheet: OleVariant; ImageFilePath: string; ImageHeight, PictureTop: Integer);
-//var
-//    Picture: OleVariant;
-//begin
-//    Picture := ActiveSheet.Pictures.Insert(ImageFilePath);
-//    Picture.Width := ImageHeight * Picture.Width/Picture.Height;
-//    Picture.Height := ImageHeight;
-//    Picture.ShapeRange.Left := 0;
-//    Picture.ShapeRange.Top := PictureTop;
-//    Picture.Placement := xlMoveAndSize;                       8\
-//end;
 
 end.
 

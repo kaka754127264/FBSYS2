@@ -584,7 +584,16 @@ begin
 
 end;
 
-
+//procedure TForm3.copyImg(var img: readImg);
+//var
+//  MyFormat: Word;
+//  AData: THandle;      //临时句柄变量。
+//  APalette: HPALETTE;  //临时变量。
+//
+//begin
+//  img.SaveToClipboardFormat(MyFormat, AData, APalette);
+//  ClipBoard.SetAsHandle(MyFormat, AData);
+//end;
 
 procedure TForm3.toExcel(col, row: string; var FWorksheet: OleVariant);
 begin
@@ -634,7 +643,7 @@ begin
       FWorksheet.Columns[col].NumberFormatLocal := '@';
     end;
 
-
+    FWorksheet.Cells[2, col] := dbgrd2.Fields[col - 1];
   end;
   Inc(col);
 

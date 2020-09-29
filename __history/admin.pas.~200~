@@ -207,8 +207,7 @@ end;
 
 procedure TForm4.btn5Click(Sender: TObject);
 begin
-  DBGrid2Excel.DBGridToExcel(dbgrd1);
-
+  DBGrid2Excel.DBGridToExcel(dbgrd1,10000);
 
 end;
 

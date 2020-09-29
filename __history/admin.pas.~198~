@@ -208,8 +208,6 @@ end;
 procedure TForm4.btn5Click(Sender: TObject);
 begin
   DBGrid2Excel.DBGridToExcel(dbgrd1);
-
-
 end;
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);

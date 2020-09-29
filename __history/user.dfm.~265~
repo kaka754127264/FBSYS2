@@ -1076,7 +1076,7 @@
     OnClick = btn34Click
   end
   object btn35: TButton
-    Left = 538
+    Left = 540
     Top = 818
     Width = 100
     Height = 25
@@ -1088,7 +1088,6 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 41
-    OnClick = btn35Click
   end
   object con1: TADOConnection
     Connected = True

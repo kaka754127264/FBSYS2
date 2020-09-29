@@ -133,9 +133,11 @@ end;
 procedure TForm4.btn2Click(Sender: TObject);
 var
   FExcel, FWorkBook, FWorksheet: OleVariant;
-  col, row, jcol, jrow: integer;
-  Cell1, Cell2, Range: Variant;
-
+  col, row, i, j,iVarCount: integer;
+  Cell1, Cell2, Range,varCells: Variant;
+const
+  MAX_SHEET_ROWS = 65536 - 1;
+  MAX_VAR_ONCE = 1000;
 begin
 //
   //´´½¨Excel
@@ -148,6 +150,11 @@ begin
   FWorksheet.Select;
   FExcel.visible := true;
 
+   if dbgrd1.DataSource.DataSet.RecordCount <= MAX_VAR_ONCE then
+    iVarCount := dbgrd1.DataSource.DataSet.RecordCount
+  else
+    iVarCount := MAX_VAR_ONCE;
+  varCells := VarArrayCreate([1, iVarCount, 1, dbgrd1.FieldCount], varVariant);
 
   col := dbgrd1.DataSource.DataSet.FieldCount;
   row := dbgrd1.DataSource.DataSet.RecordCount;
@@ -175,16 +182,15 @@ begin
   end;
   Inc(col);
 
-//  while not dbgrd1.DataSource.DataSet.Eof do
-//  begin
-//     for col := 0 to dbgrd1.Columns.Count - 1 do
-//     begin
-//       FWorksheet.cells[jcol + 1, col + 1] := dbgrd1.Columns.Items[col].Field.AsString;
-//       FWorksheet.cells[1,]
-//     end;
-//     Inc(jcol);
-//     dbgrd1.DataSource.DataSet.Next;
-//  end;
+  while not Target.DataSource.DataSet.Eof do
+  begin
+     for iCount := 0 to Target.Columns.Count - 1 do
+     begin
+       Sheet.cells[jCount + 1, iCount + 1] := Target.Columns.Items[iCount].Field.AsString;
+     end;
+     Inc(jCount);
+     Target.DataSource.DataSet.Next;
+  end;
 
 
 
@@ -208,8 +214,6 @@ end;
 procedure TForm4.btn5Click(Sender: TObject);
 begin
   DBGrid2Excel.DBGridToExcel(dbgrd1);
-
-
 end;
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);

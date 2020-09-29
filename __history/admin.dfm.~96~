@@ -319,76 +319,6 @@
     Height = 64
     Stretch = True
   end
-  object img2: TImage
-    Left = 600
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img3: TImage
-    Left = 668
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img4: TImage
-    Left = 736
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img5: TImage
-    Left = 804
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img6: TImage
-    Left = 872
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img7: TImage
-    Left = 940
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img8: TImage
-    Left = 1008
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img9: TImage
-    Left = 1076
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img10: TImage
-    Left = 1144
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
-  object img11: TImage
-    Left = 1212
-    Top = 19
-    Width = 64
-    Height = 64
-    Stretch = True
-  end
   object edt1: TEdit
     Left = 96
     Top = 8
@@ -502,7 +432,7 @@
   object dbgrd1: TDBGrid
     Left = 8
     Top = 102
-    Width = 1424
+    Width = 1415
     Height = 776
     DataSource = ds1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -526,8 +456,8 @@
     Top = 10
   end
   object pm1: TPopupMenu
-    Left = 448
-    Top = 55
+    Left = 450
+    Top = 53
     object N2: TMenuItem
       Caption = #26597#30475#22270#29255
       OnClick = N2Click
@@ -577,7 +507,7 @@
     end
     object wdstrngfldqry1问题描述: TWideStringField
       FieldName = #38382#39064#25551#36848
-      Size = 200
+      Size = 50
     end
     object wdstrngfldqry1审核人: TWideStringField
       FieldName = #23457#26680#20154

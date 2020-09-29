@@ -582,9 +582,19 @@ begin
   JpgImg.SaveToClipboardFormat(MyFormat, AData, APalette);
   ClipBoard.SetAsHandle(MyFormat, AData);
 
+
 end;
 
-
+//procedure TForm3.copyImg(var img: readImg);
+//var
+//  MyFormat: Word;
+//  AData: THandle;      //临时句柄变量。
+//  APalette: HPALETTE;  //临时变量。
+//
+//begin
+//  img.SaveToClipboardFormat(MyFormat, AData, APalette);
+//  ClipBoard.SetAsHandle(MyFormat, AData);
+//end;
 
 procedure TForm3.toExcel(col, row: string; var FWorksheet: OleVariant);
 begin
@@ -616,7 +626,7 @@ begin
   FExcel.ActiveSheet.Rows[1].Font.Bold := True;
   FExcel.ActiveSheet.Rows[1].Font.UnderLine := False;
 
-//  Application.ProcessMessages;
+  Application.ProcessMessages;
 
   for col := 1 to dbgrd2.FieldCount do
   begin
@@ -628,12 +638,12 @@ begin
 //    FWorksheet.Columns[col].ColumnWidth := dbgrd2.Fields[col - 1].DisplayWidth;
     FWorksheet.Columns[col].ColumnWidth := 55;
 //    FWorksheet.Rows[2].RowHeight := 10/0.035;
+
         //单元格格式化
     if (dbgrd2.Fields[col - 1].DataType = ftString) or (dbgrd2.Fields[col - 1].DataType = ftWideString) then
     begin           //对于“字符串”型数据则设Excel单元格为“文本”型
       FWorksheet.Columns[col].NumberFormatLocal := '@';
     end;
-
 
   end;
   Inc(col);
