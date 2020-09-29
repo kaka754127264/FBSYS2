@@ -115,6 +115,49 @@ type
     dtmfldqry1时间: TDateTimeField;
     intgrfldqry1图片序号: TIntegerField;
     btn35: TButton;
+    btn36: TButton;
+    dlgOpen1: TOpenDialog;
+    qry3: TADOQuery;
+    ds3: TDataSource;
+    intgrfldqry3id: TIntegerField;
+    wdstrngfldqry3picStr1: TWideStringField;
+    wdstrngfldqry3picStr2: TWideStringField;
+    wdstrngfldqry3picStr3: TWideStringField;
+    wdstrngfldqry3picStr4: TWideStringField;
+    wdstrngfldqry3picStr5: TWideStringField;
+    wdstrngfldqry3picStr6: TWideStringField;
+    wdstrngfldqry3picStr7: TWideStringField;
+    wdstrngfldqry3picStr8: TWideStringField;
+    wdstrngfldqry3picStr9: TWideStringField;
+    wdstrngfldqry3picStr10: TWideStringField;
+    dbgrd3: TDBGrid;
+    ds4: TDataSource;
+    qry4: TADOQuery;
+    dbgrd4: TDBGrid;
+    intgrfldqry4id: TIntegerField;
+    wdstrngfldqry4picStr1: TWideStringField;
+    wdstrngfldqry4picStr2: TWideStringField;
+    wdstrngfldqry4picStr3: TWideStringField;
+    wdstrngfldqry4picStr4: TWideStringField;
+    wdstrngfldqry4picStr5: TWideStringField;
+    wdstrngfldqry4picStr6: TWideStringField;
+    wdstrngfldqry4picStr7: TWideStringField;
+    wdstrngfldqry4picStr8: TWideStringField;
+    wdstrngfldqry4picStr9: TWideStringField;
+    wdstrngfldqry4picStr10: TWideStringField;
+    intgrfldqry4ID_1: TIntegerField;
+    blbfldqry4PIC1: TBlobField;
+    blbfldqry4PIC2: TBlobField;
+    blbfldqry4PIC3: TBlobField;
+    blbfldqry4PIC4: TBlobField;
+    blbfldqry4PIC5: TBlobField;
+    blbfldqry4PIC6: TBlobField;
+    blbfldqry4PIC7: TBlobField;
+    blbfldqry4PIC8: TBlobField;
+    blbfldqry4PIC9: TBlobField;
+    blbfldqry4PIC10: TBlobField;
+    intgrfldqry4PIC_NO: TIntegerField;
+    btn37: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure btn1Click(Sender: TObject);
@@ -169,19 +212,24 @@ type
     procedure btn35Click(Sender: TObject);
     function readImg(qry: TADOQuery; str: string): TJPEGImage;
     procedure toExcel(col, row: string; var FWorksheet: OleVariant);
+    procedure btn36Click(Sender: TObject);
 //    procedure copyImg(img: imgWidthAndHeight);
+    procedure pathAdd(qry: TADOQuery; str: string);
+    procedure tempPICPath(num: string; qry: TADOQuery);
+    procedure btn37Click(Sender: TObject);
   private
     { Private declarations }
     //function GetID: Integer;
-    type
-      imgWidthAndHeight = record //先定义一个Record有2个返回值
-        jWidth: Integer;
-        jHeight: Integer;
-      end;
+//    type
+//      imgWidthAndHeight = record //先定义一个Record有2个返回值
+//        jWidth: Integer;
+//        jHeight: Integer;
+//      end;
     var
       proNumberStr, proNameStr, IDStr(*, applicantStr, proDescriptionStr, imageDescriptionStr, auditorStr, reviewDateStr,*), pathStr: string;
-      imgWidth, imgHeight: Integer;
+//      imgWidth, imgHeight: Integer;
       JpgImg: TJpegimage;
+      VDir: string;
   public
     { Public declarations }
 
@@ -197,7 +245,7 @@ implementation
 
 {$R *.dfm}
 uses
-  TimerDlg, PIC;
+  TimerDlg, PIC, DBGrid2Excel;
 
 procedure TForm3.btn10Click(Sender: TObject);
 begin
@@ -334,6 +382,20 @@ begin
   qry2.Open;
   SetDlgAutoClose(2 * 1000, True);
   ShowMessage('刷新成功');
+
+  qry3.Close;
+  qry3.SQL.Clear;
+  qry3.SQL.Add('select * from SYS_PICPath');
+  qry3.Open;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('刷新成功');
+
+  qry4.Close;
+  qry4.SQL.Clear;
+  qry4.SQL.Add('select * from SYS_PICPath full join  SYS_PIC on SYS_PICPath.ID=SYS_PIC.ID');
+  qry4.Open;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('刷新成功');
 end;
 
 procedure TForm3.tempPIC(num: string; qry: TADOQuery);
@@ -346,6 +408,18 @@ begin
   qry.ExecSQL;
   SetDlgAutoClose(2 * 1000, True);
   ShowMessage('图片表序列号已新建成功');
+end;
+
+procedure TForm3.tempPICPath(num: string; qry: TADOQuery);
+begin
+  //添加路径表
+  qry.Close;
+  qry.SQL.Clear;
+//  tempAdd(inttostr(proNumInt), tempStr, qry1);
+  qry.SQL.Add('exec insert_SYS_PICPath ''' + num + '''');
+  qry.ExecSQL;
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('路径表序列号已新建成功');
 end;
 
 procedure TForm3.tempAdd(num, tempStrStr: string; qry: TADOQuery);
@@ -487,6 +561,7 @@ begin
 
   tempAdd(inttostr(proNumInt), tempStr, qry1);
   tempPIC(tempStr2, qry2);
+  tempPICPath(tempStr2, qry3);
   qry1.Close;
   qry1.SQL.Clear;
   qry1.SQL.Add('exec insert_SYS_User''' + proName + ''',''' + applicant + ''',''' + proDescription + ''',''' + upLoadTime + ''',''' + tempStr + '''');
@@ -584,17 +659,6 @@ begin
 
 end;
 
-//procedure TForm3.copyImg(var img: readImg);
-//var
-//  MyFormat: Word;
-//  AData: THandle;      //临时句柄变量。
-//  APalette: HPALETTE;  //临时变量。
-//
-//begin
-//  img.SaveToClipboardFormat(MyFormat, AData, APalette);
-//  ClipBoard.SetAsHandle(MyFormat, AData);
-//end;
-
 procedure TForm3.toExcel(col, row: string; var FWorksheet: OleVariant);
 begin
   FWorksheet.Range[col, row].select;
@@ -625,12 +689,12 @@ begin
   FExcel.ActiveSheet.Rows[1].Font.Bold := True;
   FExcel.ActiveSheet.Rows[1].Font.UnderLine := False;
 
-  Application.ProcessMessages;
+//  Application.ProcessMessages;
 
   for col := 1 to dbgrd2.FieldCount do
   begin
         //表头数据赋值
-//    FWorksheet.Cells[1, col] := dbgrd2.Fields[col - 1].DisplayName;
+    FWorksheet.Cells[1, col] := dbgrd2.Fields[col - 1].DisplayName;
         //第一行字体加粗
     FWorksheet.Cells[1, col].Font.Bold := True;
         //设置指定列的宽度
@@ -651,6 +715,26 @@ begin
 //
   readImg(qry2, '图片二');
   toExcel('C2', 'H3', FWorksheet);
+
+end;
+
+procedure TForm3.pathAdd(qry: TADOQuery; str: string);
+begin
+  qry.Close;
+  qry.SQL.Add(str);
+  qry.ExecSQL;           //
+end;
+
+procedure TForm3.btn36Click(Sender: TObject);
+begin
+  pathAdd(qry3, 'exec modify_SYS_PICPath''' + picStr1 + ''',''' + picStr2 + ''',''' + picStr3 + ''',''' + picStr4 + ''',''' + picStr5 + ''',''' + picStr6 + ''',''' + picStr7 + ''',''' + picStr8 + ''',''' + picStr9 + ''',''' + picStr10 + ''',''' + IDStr + '''');
+  SetDlgAutoClose(2 * 1000, True);
+  ShowMessage('路径上传成功');
+end;
+
+procedure TForm3.btn37Click(Sender: TObject);
+begin
+  DBGrid2Excel.DBGridToExcel(dbgrd1);
 
 end;
 

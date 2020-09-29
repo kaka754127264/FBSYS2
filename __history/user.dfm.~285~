@@ -610,7 +610,7 @@
     OnClick = btn4Click
   end
   object btn5: TButton
-    Left = 704
+    Left = 703
     Top = 39
     Width = 60
     Height = 25
@@ -686,7 +686,7 @@
   end
   object btn12: TButton
     Left = 360
-    Top = 8
+    Top = 7
     Width = 60
     Height = 25
     Caption = #24207#21015
@@ -734,6 +734,7 @@
     Font.Style = []
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
+    PopupMenu = pm2
     TabOrder = 18
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -1015,7 +1016,7 @@
     OnClick = btn30Click
   end
   object btn31: TButton
-    Left = 702
+    Left = 698
     Top = 787
     Width = 60
     Height = 25
@@ -1045,7 +1046,7 @@
     OnClick = btn32Click
   end
   object btn33: TButton
-    Left = 748
+    Left = 657
     Top = 818
     Width = 85
     Height = 25
@@ -1058,6 +1059,91 @@
     ParentFont = False
     TabOrder = 39
     OnClick = btn33Click
+  end
+  object btn34: TButton
+    Left = 553
+    Top = 818
+    Width = 100
+    Height = 25
+    Caption = #28165#31354#32553#30053#22270
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 40
+    OnClick = btn34Click
+  end
+  object btn35: TButton
+    Left = 447
+    Top = 818
+    Width = 100
+    Height = 25
+    Caption = #23548#20986#22270#29255#21040'Excel'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 41
+    OnClick = btn35Click
+  end
+  object btn36: TButton
+    Left = 748
+    Top = 818
+    Width = 85
+    Height = 25
+    Caption = #19978#20256#36335#24452
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 42
+    OnClick = btn36Click
+  end
+  object dbgrd3: TDBGrid
+    Left = 891
+    Top = 440
+    Width = 532
+    Height = 271
+    DataSource = ds3
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    TabOrder = 43
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -9
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object dbgrd4: TDBGrid
+    Left = 891
+    Top = 132
+    Width = 541
+    Height = 271
+    DataSource = ds4
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    TabOrder = 44
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -9
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
   end
   object con1: TADOConnection
     Connected = True
@@ -1097,33 +1183,33 @@
       'exec select_User')
     Left = 5
     Top = 858
-    object qry1产品: TWideStringField
+    object intgrfldqry1序列号: TIntegerField
+      FieldName = #24207#21015#21495
+    end
+    object wdstrngfldqry1产品: TWideStringField
       FieldName = #20135#21697
       Size = 10
     end
-    object qry1图片: TBlobField
+    object blbfldqry1图片: TBlobField
       FieldName = #22270#29255
     end
-    object qry1申请人: TWideStringField
+    object wdstrngfldqry1申请人: TWideStringField
       FieldName = #30003#35831#20154
       Size = 10
     end
-    object qry1问题描述: TWideStringField
+    object wdstrngfldqry1问题描述: TWideStringField
       FieldName = #38382#39064#25551#36848
-      Size = 50
+      Size = 200
     end
-    object qry1审核人: TWideStringField
+    object wdstrngfldqry1审核人: TWideStringField
       FieldName = #23457#26680#20154
       Size = 10
     end
-    object qry1审核日期: TDateTimeField
+    object dtmfldqry1审核日期: TDateTimeField
       FieldName = #23457#26680#26085#26399
     end
-    object qry1时间: TDateTimeField
+    object dtmfldqry1时间: TDateTimeField
       FieldName = #26102#38388
-    end
-    object intgrfldqry1序列号: TIntegerField
-      FieldName = #24207#21015#21495
     end
     object intgrfldqry1图片序号: TIntegerField
       FieldName = #22270#29255#24207#21495
@@ -1231,6 +1317,163 @@
     object N3: TMenuItem
       Caption = #26597#30475#20869#23481
       OnClick = N3Click
+    end
+  end
+  object dlgOpen1: TOpenDialog
+    Left = 846
+    Top = 722
+  end
+  object qry3: TADOQuery
+    Active = True
+    Connection = con1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from SYS_PICPath')
+    Left = 855
+    Top = 780
+    object intgrfldqry3id: TIntegerField
+      FieldName = 'id'
+    end
+    object wdstrngfldqry3picStr1: TWideStringField
+      FieldName = 'picStr1'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr2: TWideStringField
+      FieldName = 'picStr2'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr3: TWideStringField
+      FieldName = 'picStr3'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr4: TWideStringField
+      FieldName = 'picStr4'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr5: TWideStringField
+      FieldName = 'picStr5'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr6: TWideStringField
+      FieldName = 'picStr6'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr7: TWideStringField
+      FieldName = 'picStr7'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr8: TWideStringField
+      FieldName = 'picStr8'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr9: TWideStringField
+      FieldName = 'picStr9'
+      Size = 100
+    end
+    object wdstrngfldqry3picStr10: TWideStringField
+      FieldName = 'picStr10'
+      Size = 100
+    end
+  end
+  object ds3: TDataSource
+    DataSet = qry3
+    Left = 890
+    Top = 724
+  end
+  object ds4: TDataSource
+    DataSet = qry4
+    Left = 895
+    Top = 778
+  end
+  object qry4: TADOQuery
+    Connection = con1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'select * from SYS_PICPath full join  SYS_PIC on SYS_PICPath.ID=S' +
+        'YS_PIC.ID')
+    Left = 943
+    Top = 726
+    object intgrfldqry4id: TIntegerField
+      FieldName = 'id'
+    end
+    object wdstrngfldqry4picStr1: TWideStringField
+      FieldName = 'picStr1'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr2: TWideStringField
+      FieldName = 'picStr2'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr3: TWideStringField
+      FieldName = 'picStr3'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr4: TWideStringField
+      FieldName = 'picStr4'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr5: TWideStringField
+      FieldName = 'picStr5'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr6: TWideStringField
+      FieldName = 'picStr6'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr7: TWideStringField
+      FieldName = 'picStr7'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr8: TWideStringField
+      FieldName = 'picStr8'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr9: TWideStringField
+      FieldName = 'picStr9'
+      Size = 100
+    end
+    object wdstrngfldqry4picStr10: TWideStringField
+      FieldName = 'picStr10'
+      Size = 100
+    end
+    object intgrfldqry4ID_1: TIntegerField
+      FieldName = 'ID_1'
+    end
+    object blbfldqry4PIC1: TBlobField
+      FieldName = 'PIC1'
+    end
+    object blbfldqry4PIC2: TBlobField
+      FieldName = 'PIC2'
+    end
+    object blbfldqry4PIC3: TBlobField
+      FieldName = 'PIC3'
+    end
+    object blbfldqry4PIC4: TBlobField
+      FieldName = 'PIC4'
+    end
+    object blbfldqry4PIC5: TBlobField
+      FieldName = 'PIC5'
+    end
+    object blbfldqry4PIC6: TBlobField
+      FieldName = 'PIC6'
+    end
+    object blbfldqry4PIC7: TBlobField
+      FieldName = 'PIC7'
+    end
+    object blbfldqry4PIC8: TBlobField
+      FieldName = 'PIC8'
+    end
+    object blbfldqry4PIC9: TBlobField
+      FieldName = 'PIC9'
+    end
+    object blbfldqry4PIC10: TBlobField
+      FieldName = 'PIC10'
+    end
+    object intgrfldqry4PIC_NO: TIntegerField
+      FieldName = 'PIC_NO'
     end
   end
 end
