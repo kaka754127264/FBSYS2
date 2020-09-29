@@ -73,6 +73,7 @@ type
     procedure tempDelete(num: string; qry: TADOQuery);
     procedure tempAll(qry: TADOQuery);
     procedure btn12Click(Sender: TObject);
+    procedure lbl7Click(Sender: TObject);
 //    procedure UploadPICToSqlServer(UserName, path, ConnStr: string);
   private
     { Private declarations }
@@ -295,6 +296,11 @@ end;
 procedure TForm3.FormDestroy(Sender: TObject);
 begin
   Form3 := nil; //在窗口销毁时，把Form3变量设为nil
+end;
+
+procedure TForm3.lbl7Click(Sender: TObject);
+begin
+
 end;
 
 {

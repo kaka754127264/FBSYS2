@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, Data.Win.ADODB, Vcl.ExtCtrls,
-  Vcl.Menus, DBCtrls, jpeg, ComObj;
+  Vcl.Menus, DBCtrls, jpeg, ComObj, Vcl.Clipbrd;
 
 type
   TForm4 = class(TForm)
@@ -41,6 +41,7 @@ type
     intgrfldqry1”√ªß–Ú¡–∫≈: TIntegerField;
     ds1: TDataSource;
     dlgSave1: TSaveDialog;
+    btn2: TButton;
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btn4Click(Sender: TObject);
@@ -49,6 +50,7 @@ type
     procedure btn1Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure btn5Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
   private
     { Private declarations }
     var
@@ -66,7 +68,7 @@ implementation
 {$R *.dfm}
 
 uses
-  TimerDlg, PIC, user,DBGrid2Excel;
+  TimerDlg, PIC, user, DBGrid2Excel;
 
 procedure TForm4.btn1Click(Sender: TObject);
 var
@@ -87,6 +89,40 @@ begin
 
 end;
 
+procedure TForm4.btn2Click(Sender: TObject);
+var
+  xls, wb, Range: OLEVariant;
+  arrData: Variant;
+  RowCount, ColCount, i, j: Integer;
+begin
+//
+  {create variant array where we'll copy our data}
+  RowCount := 10;
+  ColCount := 10;
+  arrData := VarArrayCreate([1, RowCount, 1, ColCount], varVariant);
+
+  {fill array}
+  for i := 1 to RowCount do
+    for j := 1 to ColCount do
+      arrData[i, j] := Format('This is test text #%d-%d', [i, j]);
+
+  {initialize an instance of Excel}
+  xls := CreateOLEObject('Excel.Application');
+
+  {create workbook}
+  wb := xls.Workbooks.Add;
+
+  {retrieve a range where data must be placed}
+  Range := wb.WorkSheets[1].Range[wb.WorkSheets[1].Cells[1, 1], wb.WorkSheets[1].Cells[RowCount, ColCount]];
+
+  { copy data from the array into an Excel Range, and then use AutoFit to size them }
+  Range.Value := arrData;
+  Range.Columns.AutoFit;
+
+  {show Excel with our data}
+  xls.Visible := True;
+end;
+
 procedure TForm4.btn3Click(Sender: TObject);
 begin
   Form3.tempAll(qry1);
@@ -104,7 +140,7 @@ end;
 
 procedure TForm4.btn5Click(Sender: TObject);
 begin
-     DBGrid2Excel.DBGridToExcel(dbgrd1);
+  DBGrid2Excel.DBGridToExcel(dbgrd1);
 end;
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);

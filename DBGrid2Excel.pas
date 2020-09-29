@@ -28,7 +28,7 @@ begin
 
   MyExcel := CreateOleObject('Excel.Application');
   MyExcel.WorkBooks.Add;
-  MyExcel.Visible := False;
+  MyExcel.Visible := True;
 
   if dgrSource.DataSource.DataSet.RecordCount <= MAX_VAR_ONCE then
     iVarCount := dgrSource.DataSource.DataSet.RecordCount
@@ -52,12 +52,13 @@ begin
 
       for iCol := 1 to dgrSource.FieldCount do
       begin
+        //表头数据赋值
         MySheet.Cells[1, iCol] := dgrSource.Fields[iCol - 1].DisplayName;
+        //第一行字体加粗
         MySheet.Cells[1, iCol].Font.Bold := True;
-        {MySheet.Select;
-        MySheet.Cells[iRow,iCol].Select;
-        MyExcel.Selection.Font.Bold := true;}//这种方法也可(Sheet.Select不可少)
+        //设置指定列的宽度
         MySheet.Columns[iCol].ColumnWidth := dgrSource.Fields[iCol - 1].DisplayWidth;
+        //
         if (dgrSource.Fields[iCol - 1].DataType = ftString) or (dgrSource.Fields[iCol - 1].DataType = ftWideString) then
         begin           //对于“字符串”型数据则设Excel单元格为“文本”型
           MySheet.Columns[iCol].NumberFormatLocal := '@';
@@ -103,7 +104,7 @@ begin
   varCells := Unassigned;
   MyExcel.WorkBooks[1].WorkSheets[1].Select;   //必须先选Sheet
   MyExcel.WorkBooks[1].WorkSheets[1].Cells[1, 1].Select;
-  MyExcel.Visible := True;
+//  MyExcel.Visible := True;
   MyExcel.WorkBooks[1].Saved := True;
   MyExcel := Unassigned;
   if CurPos <> nil then

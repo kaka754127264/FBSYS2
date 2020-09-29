@@ -3,9 +3,9 @@
   Top = 0
   BorderStyle = bsToolWindow
   Caption = #29992#25143
-  ClientHeight = 720
-  ClientWidth = 1280
-  Color = clMoneyGreen
+  ClientHeight = 900
+  ClientWidth = 1440
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -21
@@ -274,80 +274,80 @@
   PixelsPerInch = 96
   TextHeight = 25
   object lbl3: TLabel
-    Left = 19
-    Top = 665
-    Width = 76
-    Height = 23
-    Caption = #23457#26680#26085#26399
+    Left = 492
+    Top = 46
+    Width = 24
+    Height = 28
+    Caption = #23457#26680#13#10#26085#26399
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object lbl5: TLabel
-    Left = 19
-    Top = 627
-    Width = 57
-    Height = 23
-    Caption = #23457#26680#20154
+    Left = 492
+    Top = 8
+    Width = 24
+    Height = 28
+    Caption = #23457#26680#13#10#20154
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object lbl4: TLabel
-    Left = 38
-    Top = 20
-    Width = 57
-    Height = 23
-    Caption = #30003#35831#20154
+    Left = 8
+    Top = 8
+    Width = 24
+    Height = 28
+    Caption = #30003#35831#13#10#20154
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 19
-    Top = 59
-    Width = 76
-    Height = 23
-    Caption = #38382#39064#25551#36848
+    Left = 8
+    Top = 47
+    Width = 24
+    Height = 28
+    Caption = #38382#39064#13#10#25551#36848
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object lbl1: TLabel
-    Left = 331
-    Top = 20
-    Width = 38
-    Height = 23
+    Left = 134
+    Top = 8
+    Width = 24
+    Height = 14
     Caption = #20135#21697
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object img1: TImage
-    Left = 892
-    Top = 72
-    Width = 289
-    Height = 146
+    Left = 633
+    Top = 38
+    Width = 64
+    Height = 64
     Stretch = True
   end
   object lbl6: TLabel
-    Left = 892
-    Top = 45
+    Left = 492
+    Top = 112
     Width = 24
     Height = 14
     Caption = #36335#24452
@@ -359,28 +359,29 @@
     ParentFont = False
   end
   object img2: TImage
-    Left = 31
-    Top = 154
+    Left = 809
+    Top = 38
     Width = 64
     Height = 64
     Stretch = True
   end
   object lbl7: TLabel
-    Left = 606
-    Top = 20
-    Width = 48
+    Left = 326
+    Top = 8
+    Width = 24
     Height = 13
-    Caption = #24635#34892#25968#65306
+    Caption = #34892#25968
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    OnClick = lbl7Click
   end
   object lbl8: TLabel
-    Left = 606
-    Top = 39
+    Left = 326
+    Top = 27
     Width = 28
     Height = 13
     Caption = 'NONE'
@@ -392,11 +393,10 @@
     ParentFont = False
   end
   object mmo1: TMemo
-    Left = 118
-    Top = 62
-    Width = 632
-    Height = 156
-    BorderStyle = bsNone
+    Left = 38
+    Top = 46
+    Width = 382
+    Height = 77
     Font.Charset = GB2312_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -407,46 +407,42 @@
     TabOrder = 0
   end
   object edt3: TEdit
-    Left = 115
-    Top = 627
-    Width = 227
-    Height = 28
-    BorderStyle = bsNone
+    Left = 522
+    Top = 8
+    Width = 90
+    Height = 33
     TabOrder = 1
   end
   object edt1: TEdit
-    Left = 115
-    Top = 15
-    Width = 196
-    Height = 29
-    BorderStyle = bsNone
+    Left = 38
+    Top = 8
+    Width = 90
+    Height = 33
     TabOrder = 2
   end
   object edt8: TEdit
-    Left = 115
-    Top = 663
-    Width = 227
-    Height = 28
-    BorderStyle = bsNone
+    Left = 522
+    Top = 44
+    Width = 90
+    Height = 33
     TabOrder = 3
   end
   object edt4: TEdit
-    Left = 384
-    Top = 15
-    Width = 196
-    Height = 29
-    BorderStyle = bsNone
+    Left = 164
+    Top = 8
+    Width = 90
+    Height = 33
     TabOrder = 4
   end
   object btn7: TButton
-    Left = 892
-    Top = 8
-    Width = 98
-    Height = 31
+    Left = 704
+    Top = 70
+    Width = 85
+    Height = 25
     Caption = #19978#20256#22270#29255
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
@@ -454,14 +450,14 @@
     OnClick = btn7Click
   end
   object btn6: TButton
-    Left = 1015
-    Top = 614
-    Width = 235
-    Height = 88
+    Left = 527
+    Top = 78
+    Width = 85
+    Height = 25
     Caption = #23457#26680#30830#35748
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
@@ -469,59 +465,89 @@
     OnClick = btn6Click
   end
   object btn1: TButton
-    Left = 787
-    Top = 170
-    Width = 90
-    Height = 48
+    Left = 426
+    Top = 98
+    Width = 60
+    Height = 25
     Caption = #21047#26032
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 7
     OnClick = btn1Click
   end
   object btn2: TButton
-    Left = 787
+    Left = 426
     Top = 8
-    Width = 90
-    Height = 48
+    Width = 60
+    Height = 25
     Caption = #28155#21152
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 8
     OnClick = btn2Click
   end
   object btn3: TButton
-    Left = 787
-    Top = 62
-    Width = 90
-    Height = 48
+    Left = 426
+    Top = 38
+    Width = 60
+    Height = 25
     Caption = #21024#38500
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 9
     OnClick = btn3Click
   end
   object btn4: TButton
-    Left = 787
-    Top = 116
-    Width = 90
-    Height = 48
+    Left = 426
+    Top = 68
+    Width = 60
+    Height = 25
     Caption = #20462#25913
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 10
     OnClick = btn4Click
   end
   object btn5: TButton
-    Left = 1091
-    Top = 8
-    Width = 90
-    Height = 31
+    Left = 704
+    Top = 39
+    Width = 60
+    Height = 25
     Caption = #28165#22270
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 11
     OnClick = btn5Click
   end
   object btn8: TButton
-    Left = 996
+    Left = 704
     Top = 8
-    Width = 90
-    Height = 31
-    Caption = #35835#22270
+    Width = 60
+    Height = 25
+    Caption = #35835#21462
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -19
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
@@ -529,51 +555,74 @@
     OnClick = btn8Click
   end
   object btn9: TButton
-    Left = 1187
-    Top = 62
-    Width = 90
-    Height = 48
+    Left = 633
+    Top = 7
+    Width = 65
+    Height = 25
     Caption = #28165#31354
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 13
-    Visible = False
     OnClick = btn9Click
   end
   object btn10: TButton
-    Left = 1187
-    Top = 116
-    Width = 90
-    Height = 48
+    Left = 788
+    Top = 7
+    Width = 85
+    Height = 25
     Caption = #20851#38381#32553#30053
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 14
     OnClick = btn10Click
   end
   object btn11: TButton
-    Left = 1187
-    Top = 170
-    Width = 90
-    Height = 48
-    Caption = #28165#31354#25991#23383
+    Left = 260
+    Top = 8
+    Width = 60
+    Height = 25
+    Caption = #28165#38500
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 15
     OnClick = btn11Click
   end
   object btn12: TButton
-    Left = 660
+    Left = 360
     Top = 8
-    Width = 90
-    Height = 48
-    Caption = #35774#32622#24207#21015
+    Width = 60
+    Height = 25
+    Caption = #24207#21015
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 16
     OnClick = btn12Click
   end
   object dbgrd1: TDBGrid
     Left = 8
-    Top = 234
-    Width = 1264
-    Height = 374
+    Top = 132
+    Width = 865
+    Height = 271
     DataSource = ds1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -9
     Font.Name = 'Tahoma'
     Font.Style = []
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -582,7 +631,7 @@
     TabOrder = 17
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -21
+    TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnCellClick = dbgrd1CellClick
@@ -597,16 +646,16 @@
       'se;Tag with column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 11
-    Top = 88
+    Left = 13
+    Top = 425
   end
   object dlgOpenPic1: TOpenPictureDialog
-    Left = 1188
-    Top = 4
+    Left = 167
+    Top = 427
   end
   object pm1: TPopupMenu
-    Left = 417
-    Top = 614
+    Left = 125
+    Top = 428
     object N1: TMenuItem
       Caption = #21024#38500#35813#34892
       OnClick = N1Click
@@ -623,8 +672,8 @@
     Parameters = <>
     SQL.Strings = (
       'exec select_User')
-    Left = 48
-    Top = 88
+    Left = 50
+    Top = 425
     object qry1产品: TWideStringField
       FieldName = #20135#21697
       Size = 10
@@ -656,7 +705,7 @@
   end
   object ds1: TDataSource
     DataSet = qry1
-    Left = 8
-    Top = 19
+    Left = 86
+    Top = 426
   end
 end

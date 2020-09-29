@@ -3,9 +3,9 @@ object Form10: TForm10
   Top = 0
   BorderStyle = bsToolWindow
   Caption = #36134#21495
-  ClientHeight = 170
-  ClientWidth = 394
-  Color = clMoneyGreen
+  ClientHeight = 145
+  ClientWidth = 264
+  Color = clCream
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -21
@@ -274,53 +274,52 @@ object Form10: TForm10
   PixelsPerInch = 96
   TextHeight = 25
   object lbl1: TLabel
-    Left = 8
-    Top = 8
-    Width = 38
-    Height = 23
+    Left = 17
+    Top = 15
+    Width = 32
+    Height = 19
     Caption = #36134#21495
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object lbl2: TLabel
-    Left = 8
-    Top = 47
-    Width = 38
-    Height = 23
+    Left = 17
+    Top = 43
+    Width = 32
+    Height = 19
     Caption = #23494#30721
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
   end
   object lbl3: TLabel
-    Left = 311
-    Top = 8
-    Width = 60
-    Height = 16
-    Caption = #24555#25463#25353#38062
+    Left = 19
+    Top = 85
+    Width = 30
+    Height = 32
+    Caption = #24555#25463#13#10#25353#38062
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    Visible = False
   end
   object edt1: TEdit
-    Left = 80
-    Top = 8
-    Width = 218
-    Height = 31
+    Left = 55
+    Top = 12
+    Width = 120
+    Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
@@ -328,13 +327,13 @@ object Form10: TForm10
     OnKeyPress = edt1KeyPress
   end
   object edt2: TEdit
-    Left = 80
+    Left = 55
     Top = 45
-    Width = 218
-    Height = 29
+    Width = 120
+    Height = 25
     Font.Charset = SYMBOL_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -16
     Font.Name = 'Wingdings'
     Font.Style = []
     ParentFont = False
@@ -343,10 +342,10 @@ object Form10: TForm10
     OnKeyPress = edt2KeyPress
   end
   object btn1: TButton
-    Left = 80
-    Top = 91
+    Left = 181
+    Top = 14
     Width = 75
-    Height = 40
+    Height = 25
     Caption = #30331#24405
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -358,10 +357,10 @@ object Form10: TForm10
     OnClick = btn1Click
   end
   object btn2: TButton
-    Left = 223
-    Top = 91
+    Left = 181
+    Top = 47
     Width = 75
-    Height = 40
+    Height = 25
     Caption = #20851#38381
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -373,23 +372,21 @@ object Form10: TForm10
     OnClick = btn2Click
   end
   object btn3: TButton
-    Left = 311
-    Top = 61
+    Left = 55
+    Top = 107
     Width = 75
     Height = 25
     Caption = #29992#25143
     TabOrder = 4
-    Visible = False
     OnClick = btn3Click
   end
   object btn4: TButton
-    Left = 311
-    Top = 30
+    Left = 55
+    Top = 76
     Width = 75
     Height = 25
     Caption = #31649#29702
     TabOrder = 5
-    Visible = False
     OnClick = btn4Click
   end
   object con1: TADOConnection
@@ -402,13 +399,13 @@ object Form10: TForm10
       'se;Tag with column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 45
-    Top = 96
+    Left = 194
+    Top = 91
   end
   object qry1: TADOQuery
     Connection = con1
     Parameters = <>
-    Left = 10
-    Top = 98
+    Left = 226
+    Top = 91
   end
 end
