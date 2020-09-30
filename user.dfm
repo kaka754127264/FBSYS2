@@ -475,6 +475,108 @@
     Height = 64
     Stretch = True
   end
+  object lbl10: TLabel
+    Left = 891
+    Top = 8
+    Width = 40
+    Height = 13
+    Caption = #37325#21629#21517':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl11: TLabel
+    Left = 967
+    Top = 27
+    Width = 264
+    Height = 13
+    Caption = #37325#21629#21517#36873#20013#19979#34920#26684#65292#25554#20837#26102#20854#20313#34920#26684#36873#25321#30456#21516#30340#34892
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl12: TLabel
+    Left = 938
+    Top = 65
+    Width = 11
+    Height = 25
+    Caption = '1'
+  end
+  object lbl13: TLabel
+    Left = 938
+    Top = 104
+    Width = 11
+    Height = 25
+    Caption = '2'
+  end
+  object lbl14: TLabel
+    Left = 938
+    Top = 143
+    Width = 11
+    Height = 25
+    Caption = '3'
+  end
+  object lbl15: TLabel
+    Left = 938
+    Top = 182
+    Width = 11
+    Height = 25
+    Caption = '4'
+  end
+  object lbl16: TLabel
+    Left = 938
+    Top = 221
+    Width = 11
+    Height = 25
+    Caption = '5'
+  end
+  object lbl17: TLabel
+    Left = 1113
+    Top = 65
+    Width = 11
+    Height = 25
+    Caption = '6'
+  end
+  object lbl18: TLabel
+    Left = 1113
+    Top = 104
+    Width = 11
+    Height = 25
+    Caption = '7'
+  end
+  object lbl19: TLabel
+    Left = 1113
+    Top = 143
+    Width = 11
+    Height = 25
+    Caption = '8'
+  end
+  object lbl20: TLabel
+    Left = 1113
+    Top = 182
+    Width = 11
+    Height = 25
+    Caption = '9'
+  end
+  object lbl21: TLabel
+    Left = 1113
+    Top = 221
+    Width = 22
+    Height = 25
+    Caption = '10'
+  end
+  object img13: TImage
+    Left = 1290
+    Top = 138
+    Width = 105
+    Height = 105
+  end
   object mmo1: TMemo
     Left = 38
     Top = 46
@@ -581,7 +683,7 @@
   end
   object btn3: TButton
     Left = 426
-    Top = 38
+    Top = 37
     Width = 60
     Height = 25
     Caption = #21024#38500
@@ -744,7 +846,7 @@
     OnCellClick = dbgrd1CellClick
   end
   object btn13: TButton
-    Left = 467
+    Left = 465
     Top = 409
     Width = 70
     Height = 25
@@ -759,7 +861,7 @@
     OnClick = btn13Click
   end
   object btn14: TButton
-    Left = 541
+    Left = 539
     Top = 409
     Width = 70
     Height = 25
@@ -774,7 +876,7 @@
     OnClick = btn14Click
   end
   object btn15: TButton
-    Left = 615
+    Left = 613
     Top = 409
     Width = 70
     Height = 25
@@ -804,7 +906,7 @@
     OnClick = btn16Click
   end
   object btn17: TButton
-    Left = 763
+    Left = 761
     Top = 409
     Width = 70
     Height = 25
@@ -837,7 +939,7 @@
     OnClick = btn18Click
   end
   object btn19: TButton
-    Left = 171
+    Left = 169
     Top = 409
     Width = 70
     Height = 25
@@ -852,7 +954,7 @@
     OnClick = btn19Click
   end
   object btn20: TButton
-    Left = 245
+    Left = 243
     Top = 409
     Width = 70
     Height = 25
@@ -867,7 +969,7 @@
     OnClick = btn20Click
   end
   object btn21: TButton
-    Left = 319
+    Left = 317
     Top = 409
     Width = 70
     Height = 25
@@ -882,7 +984,7 @@
     OnClick = btn21Click
   end
   object btn22: TButton
-    Left = 393
+    Left = 391
     Top = 409
     Width = 70
     Height = 25
@@ -1107,8 +1209,8 @@
     OnClick = btn36Click
   end
   object dbgrd3: TDBGrid
-    Left = 891
-    Top = 440
+    Left = 900
+    Top = 572
     Width = 532
     Height = 271
     DataSource = ds3
@@ -1129,7 +1231,7 @@
   end
   object dbgrd4: TDBGrid
     Left = 891
-    Top = 132
+    Top = 267
     Width = 532
     Height = 271
     DataSource = ds4
@@ -1162,6 +1264,91 @@
     ParentFont = False
     TabOrder = 45
     OnClick = btn37Click
+  end
+  object edt2: TEdit
+    Left = 967
+    Top = 62
+    Width = 100
+    Height = 25
+    TabOrder = 46
+  end
+  object edt5: TEdit
+    Left = 967
+    Top = 101
+    Width = 100
+    Height = 25
+    TabOrder = 47
+  end
+  object edt6: TEdit
+    Left = 967
+    Top = 140
+    Width = 100
+    Height = 25
+    TabOrder = 48
+  end
+  object edt7: TEdit
+    Left = 967
+    Top = 179
+    Width = 100
+    Height = 25
+    TabOrder = 49
+  end
+  object edt9: TEdit
+    Left = 967
+    Top = 218
+    Width = 100
+    Height = 25
+    TabOrder = 50
+  end
+  object edt10: TEdit
+    Left = 1148
+    Top = 62
+    Width = 100
+    Height = 25
+    TabOrder = 51
+  end
+  object edt11: TEdit
+    Left = 1148
+    Top = 101
+    Width = 100
+    Height = 25
+    TabOrder = 52
+  end
+  object edt12: TEdit
+    Left = 1148
+    Top = 140
+    Width = 100
+    Height = 25
+    TabOrder = 53
+  end
+  object edt13: TEdit
+    Left = 1148
+    Top = 179
+    Width = 100
+    Height = 25
+    TabOrder = 54
+  end
+  object edt14: TEdit
+    Left = 1148
+    Top = 218
+    Width = 100
+    Height = 25
+    TabOrder = 55
+  end
+  object btn38: TButton
+    Left = 241
+    Top = 818
+    Width = 75
+    Height = 25
+    Caption = #23548#20986#25991#20214
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 56
+    OnClick = btn38Click
   end
   object con1: TADOConnection
     Connected = True
@@ -1338,8 +1525,8 @@
     end
   end
   object dlgOpen1: TOpenDialog
-    Left = 846
-    Top = 722
+    Left = 838
+    Top = 719
   end
   object qry3: TADOQuery
     Active = True
@@ -1348,8 +1535,8 @@
     Parameters = <>
     SQL.Strings = (
       'select * from SYS_PICPath')
-    Left = 855
-    Top = 779
+    Left = 839
+    Top = 762
     object intgrfldqry3id: TIntegerField
       FieldName = 'id'
     end
@@ -1396,13 +1583,13 @@
   end
   object ds3: TDataSource
     DataSet = qry3
-    Left = 890
-    Top = 724
+    Left = 844
+    Top = 851
   end
   object ds4: TDataSource
     DataSet = qry4
-    Left = 895
-    Top = 778
+    Left = 838
+    Top = 804
   end
   object qry4: TADOQuery
     Active = True
@@ -1410,13 +1597,54 @@
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      
-        'select * from SYS_PICPath full join  SYS_PIC on SYS_PICPath.ID=S' +
-        'YS_PIC.ID')
-    Left = 943
-    Top = 726
-    object intgrfldqry4id: TIntegerField
-      FieldName = 'id'
+      'exec select_SYS_PhotoName')
+    Left = 890
+    Top = 161
+    object intgrfldqry4ID: TIntegerField
+      FieldName = 'ID'
+    end
+    object wdstrngfldqry4photo1: TWideStringField
+      FieldName = 'photo1'
+      Size = 50
+    end
+    object wdstrngfldqry4photo2: TWideStringField
+      FieldName = 'photo2'
+      Size = 50
+    end
+    object wdstrngfldqry4photo3: TWideStringField
+      FieldName = 'photo3'
+      Size = 50
+    end
+    object wdstrngfldqry4photo4: TWideStringField
+      FieldName = 'photo4'
+      Size = 50
+    end
+    object wdstrngfldqry4photo5: TWideStringField
+      FieldName = 'photo5'
+      Size = 50
+    end
+    object wdstrngfldqry4photo6: TWideStringField
+      FieldName = 'photo6'
+      Size = 50
+    end
+    object wdstrngfldqry4photo7: TWideStringField
+      FieldName = 'photo7'
+      Size = 50
+    end
+    object wdstrngfldqry4photo8: TWideStringField
+      FieldName = 'photo8'
+      Size = 50
+    end
+    object wdstrngfldqry4photo9: TWideStringField
+      FieldName = 'photo9'
+      Size = 50
+    end
+    object wdstrngfldqry4photo10: TWideStringField
+      FieldName = 'photo10'
+      Size = 50
+    end
+    object intgrfldqry4id_1: TIntegerField
+      FieldName = 'id_1'
     end
     object wdstrngfldqry4picStr1: TWideStringField
       FieldName = 'picStr1'
@@ -1458,8 +1686,8 @@
       FieldName = 'picStr10'
       Size = 100
     end
-    object intgrfldqry4ID_1: TIntegerField
-      FieldName = 'ID_1'
+    object intgrfldqry4ID_2: TIntegerField
+      FieldName = 'ID_2'
     end
     object blbfldqry4PIC1: TBlobField
       FieldName = 'PIC1'
